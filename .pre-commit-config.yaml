@@ -19,7 +19,7 @@ repos:
 
   # Defined locally, rather than consumed from the shared
   # kieranpotts/pre-commit-hooks repository, so the set of allowed commit
-  # types can include prefixes specific to this repository (session, register).
+  # types can include prefixes specific to this repository (workshop, register).
   #
   # Keep the allowed types in sync with
   # .github/workflows/validate-commit-messages.yaml.

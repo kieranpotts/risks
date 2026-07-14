@@ -25,7 +25,7 @@ VALID_TYPES = [
     "style",
 
     # Repository-specific commit types:
-    "session",   # A threat modeling session report.
+    "workshop",  # A threat modeling workshop report.
     "register",  # An update to the living risk register.
 ]
 
