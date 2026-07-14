@@ -1,6 +1,6 @@
 # ⚠️ Risk Register
 
-**A template for capturing the outcomes of threat modeling sessions**, and for
+**A template for capturing the outcomes of threat modeling workshops**, and for
 tracking security and privacy risks over time via version control.
 
 This repository is the home of the risk register for [Project Name]. It records
@@ -11,13 +11,14 @@ There are two parts to the register:
 
 - A **living risk register.** This is a single table of the risks currently
   being tracked, with their probability, impact, severity, mitigation steps,
-  status, and residual risk. This is a mutable document. As mitigations are
-  applied, risks are reassessed, and the risk register is updated accordingly.
+  status, and residual risk. This is a mutable document. As risks are discovered,
+  mitigations applied, and risks subsequently reassessed, the risk register is
+  updated accordingly.
 
-- An **immutable, append-only log of threat modeling sessions.** For each
-  threat modeling workshop, a report captures the system context assessed, the
-  threat modeling frameworks applied (eg. STRIDE), and the risks identified in
-  the workshop.
+- An **immutable, append-only log of reports from threat modeling workshops.**
+  For each threat modeling workshop, a report captures the system context
+  assessed, the threat modeling frameworks applied (eg. STRIDE), and the risks
+  identified in the workshop.
 
 The two parts answer different questions. A threat modeling report says
 _what we found_ in an historical security review workshop. The risk register
@@ -29,17 +30,17 @@ that are [captured separately](https://github.com/kieranpotts/audits). Both
 architecture audits and threat modeling workshops assess the as-built system.
 The difference between the two is in their focus. Architecture audits assess a
 system's structural design with respect to its maintainability, extensibility,
-auditability, and other product development concerns. Threat modeling sessions
+auditability, and other product development concerns. Threat modeling workshops
 evaluate a system's design against known security risks and question whether
 suitable mitigation strategies are in place.
 
 > [!NOTE]
 > This repository is the reference implementation of
 > **[TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/dev/src/054)**.
-> This technical standard defines _how_ to run threat modeling sessions and _what_
-> a risk register should contain. Please refer to the technical standard for the
-> underlying rationale for these choices. This repository is the ready-to-use
-> template that helps to put TS-54 into practice.
+> This technical standard defines _how_ to run threat modeling workshops and
+> _what_ a risk register should contain. Please refer to the technical standard
+> for the underlying rationale for these choices. This repository is the
+> ready-to-use template that helps to put TS-54 into practice.
 
 ## Ecosystem
 
@@ -80,8 +81,8 @@ directly into that repository, rather than maintain them separately.
 
 - [**Register**](./risks/REGISTER.md): The living register of tracked risks.
 
-- [**Sessions**](./risks/): The permanent archive of threat modeling session
-  reports, one directory per workshop.
+- [**Workshops**](./risks/): The permanent archive of reports from threat
+  modeling workshops, one directory per workshop.
 
   - The [`INDEX`](./risks/INDEX.md) lists every report merged into `main`,
     newest first.
@@ -90,11 +91,11 @@ directly into that repository, rather than maintain them separately.
     threat modeling workshop report.
 
 - [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions for running a
-  threat modeling session and maintaining the register.
+  threat modeling workshop and maintaining the register.
 
 - [**Agents**](./AGENTS.md) and [**Skills**](./.agents/skills/): Instructions
-  for agentic tools to run sessions and maintain the register with a high degree
-  of autonomy.
+  for agentic tools to run workshops and to maintain the register with a high
+  degree of autonomy.
 
 - [**Documentation**](./docs/): General guidance on threat modeling, risk
   rating, and keeping the register honest.
