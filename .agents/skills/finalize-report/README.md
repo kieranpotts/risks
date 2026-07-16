@@ -1,4 +1,4 @@
-# Land session
+# Finalize report
 
 Lands a threat modeling session once review is settled.
 
@@ -17,12 +17,12 @@ Lands a threat modeling session once review is settled.
 
 ## Examples
 
-- `/land-session`: The agent infers the pull request from the checked-out
+- `/finalize-report`: The agent infers the pull request from the checked-out
   `session/<slug>` branch, confirms it's ready, and merges it.
 
-- `/land-session <description>`: If not on the session branch, name the session
+- `/finalize-report <description>`: If not on the session branch, name the session
   so the agent can find its pull request.
 
-Use [`/draft-session`](../draft-session/README.md) first to scaffold the session,
+Use [`/finalize-report`](../finalize-report/README.md) first to scaffold the session,
 and [`/update-register`](../update-register/README.md) afterwards to keep the
 raised risks current.

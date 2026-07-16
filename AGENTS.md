@@ -67,7 +67,7 @@ A session has no lifecycle state machine – it is scoped, held, and merged in o
 pass, like an audit:
 
 1. A session is opened as a pull request on a `session/<slug>` branch,
-   scaffolded by the [`draft-session`](./.agents/skills/draft-session/) skill.
+   scaffolded by the [scaffold report](./.agents/skills/scaffold report/) skill.
    The report is written from [`risks/TEMPLATE.md`](./risks/TEMPLATE.md), and
    any risks worth tracking are added as rows to
    [`risks/REGISTER.md`](./risks/REGISTER.md) in the same pull request.
@@ -76,7 +76,7 @@ pass, like an audit:
    is required – a session report is findings to review, not a decision to
    debate.
 
-3. Once review is settled, [`land-session`](./.agents/skills/land-session/)
+3. Once review is settled, [finalize report](./.agents/skills/finalize-report/)
    squash-merges the pull request, along with the `INDEX.md` row and the new
    register rows (all added in the same PR).
 

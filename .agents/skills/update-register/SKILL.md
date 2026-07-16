@@ -1,6 +1,6 @@
 ---
 name: update-register
-description: Update the living risk register between sessions — change a tracked risk's mitigation status, severity, residual risk, or review date in place, or promote an audit finding into a tracked risk, or retire a risk that no longer applies. Use when the user says "update the register", "mark risk TA1 as mitigated", "the MFA mitigation shipped", "review the register", or "retire this risk". Do not use this skill to run a new threat model — use draft-session for that.
+description: Update the living risk register between sessions — change a tracked risk's mitigation status, severity, residual risk, or review date in place, or promote an audit finding into a tracked risk, or retire a risk that no longer applies. Use when the user says "update the register", "mark risk TA1 as mitigated", "the MFA mitigation shipped", "review the register", or "retire this risk". Do not use this skill to run a new threat model — use scaffold-report for that.
 license: MIT
 metadata:
   interactive: yes
@@ -10,7 +10,7 @@ metadata:
 
 Use this skill to keep the living [`risks/REGISTER.md`](../../../risks/REGISTER.md) current between sessions — updating a tracked risk's status in place as it evolves. Unlike a session report, the register is living documentation: it MUST reflect the current state of the system's security posture at all times.
 
-Do NOT use this skill to run a new threat modeling session — use [`/draft-session`](../draft-session/SKILL.md). Do NOT edit any merged session report; those are immutable.
+Do NOT use this skill to run a new threat modeling session — use [scaffold report](../scaffold-report/SKILL.md). Do NOT edit any merged session report; those are immutable.
 
 ## When to use
 
@@ -64,7 +64,7 @@ Do NOT use this skill to run a new threat modeling session — use [`/draft-sess
 
 -   **A reassessment that finds a _new_ threat is a session, not an update.**
 
-    If the change amounts to fresh threat identification rather than status-tracking of a known risk, use [`/draft-session`](../draft-session/SKILL.md) instead.
+    If the change amounts to fresh threat identification rather than status-tracking of a known risk, use [scaffold report](../scaffold-report/SKILL.md) instead.
 
 ## Success criteria
 
@@ -80,4 +80,4 @@ Do NOT use this skill to run a new threat modeling session — use [`/draft-sess
 
 - [`risks/REGISTER.md`](../../../risks/REGISTER.md): The living register and its fields.
 
-- [`draft-session`](../draft-session/): Runs a new threat model, which seeds the register in the first place.
+- [`scaffold-report`](../scaffold-report//): Runs a new threat model, which seeds the register in the first place.

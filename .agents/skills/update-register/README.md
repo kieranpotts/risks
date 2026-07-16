@@ -29,5 +29,5 @@ Merged session reports are never touched.
 - `/update-register Mark TA3 as mitigated, residual risk low`: The agent updates
   that row in place and opens the PR.
 
-Use [`/draft-session`](../draft-session/README.md) instead when running a new
+Use [`/scaffold-report`](../scaffold-report/README.md) instead when running a new
 threat model that identifies fresh threats.

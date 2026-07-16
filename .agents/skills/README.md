@@ -8,23 +8,23 @@ The skills automate the recurring mechanics of running a threat modeling
 session, landing its report, and keeping the register current. The available
 skills are:
 
-- **[`/draft-session`](./draft-session/)**:
+- **[scaffold report](./scaffold-report/)**:
   Scaffolds a threat modeling session. Cuts a `session/<slug>` branch from
   `main`, runs the session against the scoped system (using the STRIDE and other
   frameworks per [TS-54](https://github.com/kieranpotts/standards/tree/dev/src/054)),
   writes the report, seeds new rows into the register, and opens a pull request.
 
-- **[`/land-session`](./land-session/)**:
+- **[finalize report](./finalize-report)**:
   Lands a session. Confirms review is settled, squash-merges the pull request
   to `main` with a `session: <description>` message, and deletes the branch.
 
-- **[`/update-register`](./update-register/)**:
+- **[update register](./update-register/)**:
   Updates the living register between sessions — a mitigation landing, a risk
   reassessment, or a scheduled review — on a `register/<slug>` branch, without
   touching any merged session report.
 
-A typical session journey runs `/draft-session` → review via normal pull request
-comments → `/land-session`. Thereafter, risks are kept current with
+A typical session journey runs `/scaffold-report` → review via normal pull request
+comments → `/finalize-report`. Thereafter, risks are kept current with
 `/update-register`. Like the sibling `audits` repository, sessions have no
 lifecycle state machine and no discussion-thread requirement — a session is
 scoped, held, and merged in a single pass. The register, by contrast, is living

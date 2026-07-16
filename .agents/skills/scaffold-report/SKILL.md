@@ -1,7 +1,7 @@
 ---
 name: draft-report
 description: >-
-  Scaffold a report for a threat modeling workshop — run a STRIDE-based (and, where relevant, LINDDUN / OWASP) threat model against a scoped system, write its report, seed the risk register, and open a pull request. Use this skill when the user wants to threat model a system, or says "run a threat modeling session", "threat model this", or "open a session PR". Do not use this skill to merge a session — use land-session for that. Do not use it to update an existing risk — use update-register.
+  Scaffold a report for a threat modeling workshop — run a STRIDE-based (and, where relevant, LINDDUN / OWASP) threat model against a scoped system, write its report, seed the risk register, and open a pull request. Use this skill when the user wants to threat model a system, or says "run a threat modeling session", "threat model this", or "open a session PR". Do not use this skill to merge a session — use finalize-report for that. Do not use it to update an existing risk — use update-register.
 license: MIT
 metadata:
   interactive: yes
