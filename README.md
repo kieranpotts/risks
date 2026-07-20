@@ -9,21 +9,23 @@ ratings, mitigation strategies, and current status.
 
 There are two parts to the register:
 
-- A **living risk register.** This is a single table of the risks currently
-  being tracked, with their probability, impact, severity, mitigation steps,
-  status, and residual risk. This is a mutable document. As risks are discovered,
-  mitigations applied, and risks subsequently reassessed, the risk register is
-  updated accordingly.
+- A **living risk register.** This is a table of all the risks in the system
+  currently being tracked. For each risk, the register records its probability,
+  impact, and overall severity rating, plus the mitigation steps being put in
+  place and the implementation status of those mitigations. The risk register
+  is living documentation. As risks are discovered, mitigations applied, and
+  risks subsequently reassessed, the risk register is updated accordingly.
 
 - An **immutable, append-only log of reports from threat modeling workshops.**
-  For each threat modeling workshop, a report captures the system context
-  assessed, the threat modeling frameworks applied (eg. STRIDE), and the risks
-  identified in the workshop.
+  Threat modeling workshops drive the register. At the end of each workshop,
+  a report is produced that captures the system context assessed (eg. the
+  particular microservices that were reviewed), the threat modeling frameworks
+  applied (eg. STRIDE), and the risks identified in the workshop.
 
-The two parts answer different questions. A threat modeling report says
-_what we found_ in an historical security review workshop. The risk register
-captures _the  current security posture of the system_ and tracks the
-implementation of new threat mitigation strategies.
+The two parts answer different questions. A report captures what we found in a
+past security review workshop. The register captures the current security
+posture of the system and tracks the implementation of mitigation strategies
+for all threats identified over the lifetime of the project.
 
 The artifacts in this repository complement the architecture audit reports
 that are [captured separately](https://github.com/kieranpotts/audits). Both
@@ -35,54 +37,54 @@ evaluate a system's design against known security risks and question whether
 suitable mitigation strategies are in place.
 
 > [!NOTE]
-> This repository is the reference implementation of
-> **[TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/dev/src/054)**.
-> This technical standard defines _how_ to run threat modeling workshops and
-> _what_ a risk register should contain. Please refer to the technical standard
-> for the underlying rationale for these choices. This repository is the
-> ready-to-use template that helps to put TS-54 into practice.
+> See **[TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054)**.
+> for more guidance on running threat modeling workshops and managing risk
+> registers.
 
 ## Ecosystem
 
 This repository is one of six that form a coherent, version-controlled
-documentation ecosystem modeling the software development lifecycle. Each is the
-reference implementation of an opinionated workflow, and answers a different
-question about a software system:
+documentation ecosystem. Each answers a different question about a software
+system.
 
-- [**📋 Software Requirements Specification (SRS)**](https://github.com/kieranpotts/specs):
-  Records _what_ the system does, in business terms.
+- [**📋 Software Requirements Specification (SRS)**](https://github.com/kieranpotts/specs) \
+  Captures what the system does, in business terms.
 
-- [**💬 Requests for Comments (RFC)**](https://github.com/kieranpotts/rfc):
-  Records _how_ significant technical decisions were made, and _why_.
+- [**💬 Requests for Comments (RFC)**](https://github.com/kieranpotts/rfc) \
+  Records how significant technical decisions were made, and why.
 
-- [**📐 Design Docs**](https://github.com/kieranpotts/design):
-  Describe _what the system looks like_, its as-is architecture.
+- [**📐 Design Docs**](https://github.com/kieranpotts/design) \
+  Documents what the system looks like in production.
 
-- [**🗺️ Delivery Plans**](https://github.com/kieranpotts/plans):
-  Capture _when, and in what order_, the work gets done.
+- [**🔍 Architecture Audits**](https://github.com/kieranpotts/audits) \
+  Logs historical evaluations of the as-built system's structural integrity.
 
-- [**🔍 Architecture Audits**](https://github.com/kieranpotts/audits):
-  Evaluate the as-built system on its own terms.
+- [**🗺️ Delivery Plans**](https://github.com/kieranpotts/plans) \
+  Tracks when, and in what order, the work gets done.
 
-- **⚠️ Risk Register**:
-  Records the security and privacy risks the system carries (this repository).
+- [**⚠️ Risk Register**](https://github.com/kieranpotts/risks) (this repository) \
+  Records the inherent security and privacy risks the system carries.
 
-The [**skills**](https://github.com/kieranpotts/skills) collection provides an
-agentic workflow that operates across all of these repositories.
+In addition, the [**✨ Agent SKills**](https://github.com/kieranpotts/skills)
+collection offers composabe agentic workflows that operate across all six
+repositories.
 
 This separation into dedicated repositories is intended for application software
 that spans multiple code repositories, and potentially multiple teams, where the
 requirements, decisions, designs, plans, audits, and risks are shared concerns
-that sit above any single codebase. For a standalone code repository – a small
-utility library, say – it may be better to fold these artifacts and skills
-directly into that repository, rather than maintain them separately.
+that sit above any single codebase.
+
+For a standalone code repository – a small utility library, say – it may be
+better to fold all documentation into the same repository.
 
 ## Contents
 
-- [**Register**](./risks/REGISTER.md): The living register of tracked risks.
+- [**Register**](./risks/REGISTER.md) \
+  The living register of tracked risks.
 
-- [**Workshops**](./risks/): The permanent archive of reports from threat
-  modeling workshops, one directory per workshop.
+- [**Reports**](./risks/) \
+  The permanent archive of reports from threat modeling workshops, one directory
+  per workshop.
 
   - The [`INDEX`](./risks/INDEX.md) lists every report merged into `main`,
     newest first.
@@ -90,15 +92,17 @@ directly into that repository, rather than maintain them separately.
   - The [`TEMPLATE`](./risks/TEMPLATE.md) is the starting point for a new
     threat modeling workshop report.
 
-- [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions for running a
-  threat modeling workshop and maintaining the register.
+- [**Contributing**](./CONTRIBUTING.md) \
+  Step-by-step instructions for running a threat modeling workshop and
+  maintaining the register.
 
-- [**Agents**](./AGENTS.md) and [**Skills**](./.agents/skills/): Instructions
-  for agentic tools to run workshops and to maintain the register with a high
-  degree of autonomy.
+- [**Agents**](./AGENTS.md) and [**Skills**](./.agents/skills/) \
+  Instructions for agents to run workshops and to maintain the register with
+  a high degree of autonomy.
 
-- [**Documentation**](./docs/): General guidance on threat modeling, risk
-  rating, and keeping the register honest.
+- [**Documentation**](./docs/) \
+  General guidance on threat modeling, risk rating, and keeping the
+  register honest.
 
 -----
 
