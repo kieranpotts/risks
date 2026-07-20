@@ -37,7 +37,7 @@ evaluate a system's design against known security risks and question whether
 suitable mitigation strategies are in place.
 
 > [!NOTE]
-> See **[TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054)**.
+> See **[TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054)**
 > for more guidance on running threat modeling workshops and managing risk
 > registers.
 
@@ -65,8 +65,8 @@ system.
 - [**⚠️ Risk Register**](https://github.com/kieranpotts/risks) (this repository) \
   Records the inherent security and privacy risks the system carries.
 
-In addition, the [**✨ Agent SKills**](https://github.com/kieranpotts/skills)
-collection offers composabe agentic workflows that operate across all six
+In addition, the [**✨ Agent Skills**](https://github.com/kieranpotts/skills)
+collection offers composable agentic workflows that operate across all six
 repositories.
 
 This separation into dedicated repositories is intended for application software

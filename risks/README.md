@@ -4,7 +4,7 @@ This directory holds the risk register and reports from threat modeling
 workshops for [Project Name].
 
 The workshop reports capture the system context assessed, the threat modeling
-frameworks applied (eg. STRIDE), and the threats identified in he workshop.
+frameworks applied (eg. STRIDE), and the threats identified in the workshop.
 The findings from workshops feed the risk register, which tracks the status of
 current identified security and privacy risks.
 
@@ -22,7 +22,7 @@ risks/
 
 ## Workflow
 
-1.  Create an `report/<slug>` branch.
+1.  Create a `report/<slug>` branch.
 
 2.  Copy the [template](./TEMPLATE.md) to `YYYY-MM-DD-<slug>/README.md`,
     where `YYYY-MM-DD` is the date of the threat modeling workshop, and `<slug>`
