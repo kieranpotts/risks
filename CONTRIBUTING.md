@@ -3,14 +3,14 @@
 <!-- Agents MUST read ./AGENTS.md. This document is for humans. -->
 
 These contributing guidelines provide step-by-step instructions for running a
-threat modeling session, landing its report, and keeping the risk register
+threat modeling workshop, landing its report, and keeping the risk register
 current.
 
 The focus here is on the mechanics and guardrails of the process. See the
 [documentation](./docs/) for more general guidance on threat modeling and
 risk rating.
 
-See also [TS-54](https://github.com/kieranpotts/standards/tree/dev/src/054)
+See also [TS-54](https://github.com/kieranpotts/standards/tree/latest/dev/src/054)
 for the technical standard that underpins this process.
 
 > [!NOTE]
@@ -22,23 +22,26 @@ for the technical standard that underpins this process.
 
 This repository holds two types of artifact, each with its own workflow:
 
-- **Workshop reports** are point-in-time snapshots of a threat modeling
-  workshop, immutable once merged to the `main` trunk.
+- **Workshop reports** are point-in-time snapshots of the outcomes of threat
+  modeling workshops, immutable once merged to the `main` trunk.
 
-- **The register** is a living table of currently-tracked risks, updated in
-  place as risks evolve.
+- **The register** is a living database of currently-tracked risks, edited
+  in-place as risks evolve.
 
-A workshop both produces a report _and_ seeds new rows in the register. From
-then on, those rows live and change under the register workflow, independently
-of the (now frozen) report.
+Threat modeling workshops, when they uncover new threats, will seed new entries
+in the risk register. From then on, the implementation of mitigation strategies
+and residual risks are tracked indefinitely via the register.
 
 ## Workflow
 
 ### Step 1: Scope the workshop
 
 Decide what is being threat modeled – which system, subsystems, services, or
-data flows are in scope, and which frameworks apply (STRIDE as a minimum;
-LINDDUN for privacy-sensitive systems; OWASP categories; etc.).
+data flows are in scope.
+
+Decide which threat modeling frameworks apply. Choose STRIDE as a minimum,
+extend with LINDDUN for privacy-sensitive systems, and consider adding OWASP
+categories and top-10 lists, etc.
 
 Gather the inputs the workflow needs: architecture diagrams, data-flow diagrams,
 the previous workshop report (if updating), and the deployment topology.
