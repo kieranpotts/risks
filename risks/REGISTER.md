@@ -46,7 +46,8 @@ moving its row to the "Retired risks" section, below, with a closing note —
 
 | Ref | Risk                    | Type     | Details                 | Probability | Impact   | Severity | Mitigation                        | Status  | Residual risk | Reviewed   |
 | --- | ----------------------- | -------- | ----------------------- | ----------- | -------- | -------- | --------------------------------- | ------- | ------------- | ---------- |
-| TA1 | Short, unique risk name | SPOOFING | Where and how it occurs | POSSIBLE    | CRITICAL | HIGH     | Mitigation steps; link to tracker | PENDING | MEDIUM        | YYYY-MM-DD |
+| TA1 | Unverified Adyen webhook signatures | SPOOFING | Adyen webhook handler in `acme/payments-service` accepts status updates with no signature check, unlike the Stripe/PayPal handlers | LIKELY | CRITICAL | HIGH | Add HMAC signature verification matching the Stripe/PayPal pattern; see [workshop report](./2026-06-15-acme-payment-flow/) | PENDING | LOW | 2026-06-15 |
+| TA2 | Indefinite retention of raw webhook payloads | DISCLOSURE | Payment event store retains full webhook payloads, including card-network response fields, with no redaction or retention limit | POSSIBLE | SEVERE | MEDIUM | Redact card-network fields before persistence; see [workshop report](./2026-06-15-acme-payment-flow/) | PENDING | LOW | 2026-06-15 |
 
 ## Retired risks
 

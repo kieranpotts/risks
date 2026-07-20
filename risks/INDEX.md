@@ -12,3 +12,4 @@ current status is subsequently tracked via the register.
 
 | Date | Scope | Frameworks | Risks raised |
 | ---- | ----- | ---------- | ------------ |
+| 2026-06-15 | [acme/payments-service@a1b2c3d](./2026-06-15-acme-payment-flow/) | STRIDE | 2 |
