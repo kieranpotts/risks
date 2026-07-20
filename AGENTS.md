@@ -39,7 +39,7 @@ method.
 
 ## Project structure
 
-- **`risks/`**:
+- **`risks/`:**
   The register and the session reports.
 
   - **`risks/REGISTER.md`** is the living register of tracked risks – the single
@@ -53,7 +53,7 @@ method.
   - **`risks/YYYY-MM-DD-<slug>/`** is one session report, dated by when the
     session was held.
 
-- **`docs/`**:
+- **`docs/`:**
   General guidance for humans on threat modeling, risk rating, and maintaining
   the register.
 

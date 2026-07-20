@@ -92,12 +92,12 @@ to the event store.
 
 ## Mitigation strategies
 
-**TA1**: Add HMAC signature verification to the Adyen webhook handler,
+**TA1:** Add HMAC signature verification to the Adyen webhook handler,
 matching the pattern already used for Stripe and PayPal, before accepting
 any status update. Treated as urgent given the direct spoofing risk to
 payment state.
 
-**TA2**: Redact card-network response fields from the stored payload before
+**TA2:** Redact card-network response fields from the stored payload before
 persistence, retaining only the fields needed for reconciliation. Accepted
 as a near-term follow-up rather than urgent, since access to the event
 store is already restricted to the payments team.
