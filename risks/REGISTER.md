@@ -1,8 +1,8 @@
 # Risk register
 
-The living register of security and privacy risks currently tracked for
-[Project Name]. This is the single source of truth for where each risk stands
-right now.
+The living register of security and privacy risks currently tracked for the
+Acme Catalog & Storefront platform. This is the single source of truth for where
+each risk stands right now.
 
 The register is living documentation. Rows are updated in place as mitigations
 are applied, risks are reassessed, and scheduled reviews are performed. A row
@@ -46,8 +46,8 @@ moving its row to the "Retired risks" section, below, with a closing note —
 
 | Ref | Risk                    | Type     | Details                 | Probability | Impact   | Severity | Mitigation                        | Status  | Residual risk | Reviewed   |
 | --- | ----------------------- | -------- | ----------------------- | ----------- | -------- | -------- | --------------------------------- | ------- | ------------- | ---------- |
-| TA1 | Unverified Adyen webhook signatures | SPOOFING | Adyen webhook handler in `acme/payments-service` accepts status updates with no signature check, unlike the Stripe/PayPal handlers | LIKELY | CRITICAL | HIGH | Add HMAC signature verification matching the Stripe/PayPal pattern; see [workshop report](./2026-06-15-acme-payment-flow/) | PENDING | LOW | 2026-06-15 |
-| TA2 | Indefinite retention of raw webhook payloads | DISCLOSURE | Payment event store retains full webhook payloads, including card-network response fields, with no redaction or retention limit | POSSIBLE | SEVERE | MEDIUM | Redact card-network fields before persistence; see [workshop report](./2026-06-15-acme-payment-flow/) | PENDING | LOW | 2026-06-15 |
+| TA1 | Unverified Stripe webhook signatures | SPOOFING | Stripe webhook handler in `acme/payments-service` accepts payment-status updates without verifying the `Stripe-Signature` header, so a forged callback could mark an unpaid order as paid | LIKELY | CRITICAL | HIGH | Verify the Stripe webhook signature (HMAC over the raw body against the endpoint signing secret) before acting on any event; see [workshop report](./2026-06-15-acme-payment-flow/) | PENDING | LOW | 2026-06-15 |
+| TA2 | Indefinite retention of raw webhook payloads | DISCLOSURE | Payment event store retains full Stripe webhook payloads, including card-network response fields, with no redaction or retention limit | POSSIBLE | SEVERE | MEDIUM | Redact card-network fields before persistence; see [workshop report](./2026-06-15-acme-payment-flow/) | PENDING | LOW | 2026-06-15 |
 
 ## Retired risks
 

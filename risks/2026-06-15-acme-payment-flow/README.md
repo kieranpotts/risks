@@ -19,8 +19,8 @@
 
 ## Summary
 
-The payment flow's checkout path is well-guarded, but the webhook ingestion
-path lacks signature verification on one provider integration, and stores
+The payment flow's checkout path is well-guarded, but the Stripe webhook
+ingestion path acts on callbacks without verifying their signature, and stores
 the raw card-network response payload longer than necessary. Both were
 raised as risks.
 
@@ -36,13 +36,13 @@ disputes), and legal/compliance.
 
 ## Technical scope
 
-In scope: the checkout API, the webhook ingestion endpoints for Stripe,
-PayPal, and Adyen, and the payment event store. Out of scope: the payment
-providers' own infrastructure, and the storefront web client.
+In scope: the checkout API, the Stripe webhook ingestion endpoint, and the
+payment event store. Out of scope: Stripe's own infrastructure, and the
+storefront web client.
 
 Stack: Node.js services behind an API gateway, events persisted to a
-Postgres event store. Webhooks arrive over the public internet and are
-authenticated via provider-specific signatures.
+Postgres event store. Webhooks arrive from Stripe over the public internet and
+are meant to be authenticated via Stripe's request signature.
 
 ## System decomposition
 
@@ -59,8 +59,7 @@ authenticated via provider-specific signatures.
 | Source | Destination | Data type | Protocol | Authentication |
 | ------ | ----------- | --------- | -------- | -------------- |
 | Storefront web | Checkout API | Card token, order | HTTPS | Session token |
-| Adyen | Webhook ingestion | Payment status | HTTPS | None (missing) |
-| Stripe/PayPal | Webhook ingestion | Payment status | HTTPS | Signature header |
+| Stripe | Webhook ingestion | Payment status | HTTPS | Signature header (not verified) |
 
 ### Sensitive assets
 
@@ -71,7 +70,7 @@ authenticated via provider-specific signatures.
 
 ### Entry points
 
-The public checkout API, and the three provider webhook endpoints.
+The public checkout API, and the Stripe webhook endpoint.
 
 ### Trust boundaries
 
@@ -82,20 +81,20 @@ to the event store.
 
 | Ref | Component / Flow | Description | Type | Countermeasures | Likelihood | Impact | Severity |
 | --- | ----------------- | ------------ | ---- | ---------------- | ---------- | ------ | -------- |
-| TA1 | Adyen webhook ingestion | No signature verification on Adyen webhooks, unlike the Stripe/PayPal handlers | SPOOFING | None currently | LIKELY | CRITICAL | HIGH |
+| TA1 | Stripe webhook ingestion | The handler acts on payment-status callbacks without verifying the `Stripe-Signature` header, so a forged callback could mark an unpaid order as paid | SPOOFING | None currently | LIKELY | CRITICAL | HIGH |
 | TA2 | Payment event store | Raw webhook payloads retained indefinitely, including card-network response fields | DISCLOSURE | Access-controlled DB, no field-level redaction | POSSIBLE | SEVERE | MEDIUM |
 
 ## Risks raised
 
-- TA1: Unverified Adyen webhook signatures
+- TA1: Unverified Stripe webhook signatures
 - TA2: Indefinite retention of raw webhook payloads
 
 ## Mitigation strategies
 
-**TA1:** Add HMAC signature verification to the Adyen webhook handler,
-matching the pattern already used for Stripe and PayPal, before accepting
-any status update. Treated as urgent given the direct spoofing risk to
-payment state.
+**TA1:** Verify the Stripe webhook signature — compute the HMAC over the raw
+request body using the endpoint's signing secret and reject any event whose
+`Stripe-Signature` header does not match — before acting on any status update.
+Treated as urgent given the direct spoofing risk to payment state.
 
 **TA2:** Redact card-network response fields from the stored payload before
 persistence, retaining only the fields needed for reconciliation. Accepted
@@ -104,7 +103,7 @@ store is already restricted to the payments team.
 
 ## Follow-ups
 
-- [ ] Create ticket in acme/payments-service for Adyen signature verification.
+- [ ] Create ticket in acme/payments-service for Stripe webhook signature verification.
 - [ ] Create ticket in acme/payments-service for webhook payload redaction.
 - [ ] Add TA1 and TA2 to the [register](../REGISTER.md).
 - [ ] Schedule the next threat modeling workshop.
