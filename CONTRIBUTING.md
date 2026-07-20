@@ -32,69 +32,59 @@ Threat modeling workshops, when they uncover new threats, will seed new entries
 in the risk register. From then on, the implementation of mitigation strategies
 and residual risks are tracked indefinitely via the register.
 
-## Workflow
+## The workshop workflow
 
-### Step 1: Scope the workshop
+1.  Scope the workshop. Decide what is being threat modeled – which systems,
+    subsystems, services, or data flows are in scope. Decide which threat
+    modeling frameworks apply. Choose STRIDE as a minimum, extend with LINDDUN
+    for privacy-sensitive systems, and consider adding OWASP categories and
+    top-10 lists, etc.
 
-Decide what is being threat modeled – which system, subsystems, services, or
-data flows are in scope.
+2.  Gather the inputs the workflow needs: architecture diagrams, data-flow
+    diagrams, the previous workshop report (if updating), and the deployment
+    topology.
 
-Decide which threat modeling frameworks apply. Choose STRIDE as a minimum,
-extend with LINDDUN for privacy-sensitive systems, and consider adding OWASP
-categories and top-10 lists, etc.
+3.  Hold a threat modeling workshop to review the current risks in the target
+    system or subsystem.
 
-Gather the inputs the workflow needs: architecture diagrams, data-flow diagrams,
-the previous workshop report (if updating), and the deployment topology.
+4.  Write up the findings from the workshop. Branch off `main` using the
+    convention `report/<slug>`, where `<slug>` is a short, hyphen-delimited
+    description of the workshop's scope, eg. `report/payment-flow`. Write up the
+    report based on the [template](./risks/TEMPLATE.md). Save the report at
+    `risks/YYYY-MM-DD-<slug>/README.md`, with the header metadata filled in.
+    Prepend a row to the [workshop index](./risks/INDEX.md).
 
-### Step 2: Open a pull request
+5.  Update the [risk register](./risks/REGISTER.md). Promote each threat worth
+    tracking into a new row of the register, with a fresh reference number.
 
-1.  Branch off `main` using the convention `report/<slug>`, where `<slug>`
-    is a short, hyphen-delimited description, eg. `report/payment-flow`.
+6.  Commit your changes with the message `report: <description>`, where
+    `<description>` is a short prose title, written full lowercase, eg.
+    `report: payment flow threat model`. Open a pull request with the same
+    title as the commit nessage. Gather feedback via normal pull request
+    comments.
 
-2.  Hold the workshop against the scoped system.
+7.  Once review is settled, squash-merge the pull request, using the PR title as
+    the merge-commit message. Delete the `report/*` branch.
 
-3.  Save the report at `risks/YYYY-MM-DD-<slug>/README.md`, copied from
-    [`TEMPLATE.md`](./risks/TEMPLATE.md), with the metadata header filled in:
-    facilitator, participants, date, scope.
+## The risk register workflow
 
-3.  Promote each threat worth tracking into a new row of the
-    [risk register](./risks/REGISTER.md), with a fresh reference number,
-    its rating, mitigation strategy, and residual risk.
+Between workshops, the [risk register](./risks/REGISTER.md) MUST be kept current
+as risks evolve. For example, when a mitigation strategy lands in production,
+the associated risk should be reassessed, and the risk register updated to
+reflect the evolved security profile of the system.
 
-4.  Prepend a row to the [index](./risks/INDEX.md).
-
-5.  Commit your changes and open a pull request titled `report: <description>`,
-    where `<description>` is a short prose title, written full lowercase,
-    eg. `report: payment flow threat model`.
-
-### Step 3: Review
-
-Gather feedback via normal pull request comments. No discussion thread is
-required. A workflow report is a set of findings to review, not a decision to
-debate.
-
-### Step 4: Merge
-
-Once review is settled, squash-merge the pull request, with a message of
-the form `report: <description>`. Delete the branch. The report, its index
-row, and the new register rows all land together.
-
-## The register workflow
-
-Between workshops, the register is kept current as risks evolve – a mitigation
-lands, a risk is reassessed, a scheduled review is performed, or a security
-finding from an [audit](https://github.com/kieranpotts/audits) is promoted into
-a tracked risk.
+To make a change to the risk register, follow these steps:
 
 1.  Branch off `main` using the convention `register/<slug>`, eg.
     `register/mfa-rollout` or `register/q3-review`.
 
-2.  Update the affected rows of [`risks/REGISTER.md`](./risks/REGISTER.md) in
-    place – mitigation status, severity, residual risk, and the `Date reviewed`.
+2.  Update the affected rows of the [risk register](./risks/REGISTER.md) in
+    place – mitigation status, severity, residual risk, and the review date.
     Do NOT touch any merged session report.
 
 3.  Commit with a `register: <description>` message and open a pull request.
-    Merge it once the change it reflects is real – eg. once the mitigation has
+
+4.  Merge it once the change it reflects is real – eg. once the mitigation has
     actually shipped to production, so the register never overstates the
     system's security posture.
 
@@ -118,13 +108,8 @@ a tracked risk.
 - Session reports are immutable once merged. To reassess the system, hold a new
   session – never edit a merged report.
 
-- This repository is discovery and record-keeping only. It MUST NOT change any
-  code, and threat identification MUST NOT include actively exploiting the
-  system.
-
 - The GitHub issue tracker is used only for maintenance work on this repository
-  itself (the `MAINTENANCE` template). Open-ended brainstorming happens in
-  [discussions](https://github.com/kieranpotts/risks/discussions).
+  itself.
 
 ## Contributor license agreement
 
