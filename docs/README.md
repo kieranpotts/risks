@@ -14,9 +14,6 @@ the risk register.
 - [**Risk rating**](./risk-rating.md):
   How to rate a threat by likelihood and impact to yield a consistent severity.
 
-- [**Development**](./development.md):
-  Local repository setup, including pre-commit hooks.
-
 - [**Contributing**](../CONTRIBUTING.md):
   The mechanics of the session and register workflows.
 
