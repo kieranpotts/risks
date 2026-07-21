@@ -30,6 +30,6 @@ Scaffolds a report from a threat modeling workshop, ready to open for review.
   infers the slug and runs the workshop directly.
 
 Once open, gather feedback via normal pull request comments, then use
-[`/finalize-report`](../finalize-report/README.md) to merge it. Thereafter,
+[`/complete-report`](../complete-report/README.md) to merge it. Thereafter,
 keep the raised risks current with
 [`/update-register`](../update-register/README.md).

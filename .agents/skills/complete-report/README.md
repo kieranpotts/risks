@@ -1,4 +1,4 @@
-# Finalize report
+# Complete report
 
 Lands a threat modeling session once review is settled.
 
@@ -13,15 +13,15 @@ Lands a threat modeling session once review is settled.
 
 ## How to invoke
 
-> Finalize report
+> Complete report
 
 ## Examples
 
-- `/finalize-report`: The agent infers the pull request from the checked-out
+- `/complete-report`: The agent infers the pull request from the checked-out
   `session/<slug>` branch, confirms it's ready, and merges it.
 
-- `/finalize-report <description>`: If not on the session branch, name the session
-  so the agent can find its pull request.
+- `/complete-report <description>`: If not on the session branch, name the
+  session so the agent can find its pull request.
 
 Use [`/scaffold-report`](../scaffold-report/README.md) first to scaffold the
 session, and [`/update-register`](../update-register/README.md) afterwards to

@@ -5,7 +5,7 @@ Skills available to agents in this repository are:
 - **[Scaffold report](./scaffold-report/):**
   Scaffolds a threat modeling session.
 
-- **[Finalize report](./finalize-report/):**
+- **[Complete report](./complete-report/):**
   Lands a finalize workshop report.
 
 - **[Update register](./update-register/):**

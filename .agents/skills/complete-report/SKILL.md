@@ -1,5 +1,5 @@
 ---
-name: finalize-report
+name: complete-report
 description: >-
   Land a threat modeling session — merge its pull request into main once
   review is settled. Use when the user says "land this session", "merge the
@@ -11,7 +11,7 @@ metadata:
   interactive: yes
 ---
 
-# Finalize report
+# Complete report
 
 Use this skill to land a threat modeling session — merge its pull request into `main` once review is settled. Like [`land-audit`](https://github.com/kieranpotts/audits/tree/main/.agents/skills/land-audit), there is no "production must be live" gate: a session reports on the present state of a system, it does not describe a future one, so nothing needs to have shipped first. (Register _updates_ that reflect a future state — eg. a mitigation not yet shipped — are handled separately by [`/update-register`](../update-register/SKILL.md).)
 
