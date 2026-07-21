@@ -35,7 +35,7 @@ and residual risks are tracked indefinitely via the register.
 ## The workshop workflow
 
 1.  Scope the workshop. Decide what is being threat modeled – which systems,
-    subsystems, services, or data flows are in scope. Decide which threat
+    subsystems, services, or data flows are in-scope. Decide which threat
     modeling frameworks apply. Choose STRIDE as a minimum, extend with LINDDUN
     for privacy-sensitive systems, and consider adding OWASP categories and
     top-10 lists, etc.

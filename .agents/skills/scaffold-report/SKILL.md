@@ -31,7 +31,7 @@ for review, not draft).
 
 -   **Determine the scope.**
 
-    Ask the user what is being threat modeled if not already stated — the system, subsystems, services, or data flows in scope, and the `owner/repo@commit` or version where applicable. Scope is the only REQUIRED input.
+    Ask the user what is being threat modeled if not already stated — the system, subsystems, services, or data flows in-scope, and the `owner/repo@commit` or version where applicable. Scope is the only REQUIRED input.
 
 -   **Determine the frameworks.**
 

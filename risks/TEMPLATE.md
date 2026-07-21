@@ -32,7 +32,7 @@ reputational, regulatory, operational?
 ## Technical scope
 
 What is being threat modeled – the system boundaries and in-scope components?
-What is out of scope?
+What is out-of-scope?
 
 What is the technology stack? What are the deployment environments and the
 integration points with other (out-of-scope) systems?

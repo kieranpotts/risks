@@ -36,8 +36,8 @@ disputes), and legal/compliance.
 
 ## Technical scope
 
-In scope: the checkout API, the Stripe webhook ingestion endpoint, and the
-payment event store. Out of scope: Stripe's own infrastructure, and the
+In-scope: the checkout API, the Stripe webhook ingestion endpoint, and the
+payment event store. Out-of-scope: Stripe's own infrastructure, and the
 storefront web client.
 
 Stack: Node.js services behind an API gateway, events persisted to a
