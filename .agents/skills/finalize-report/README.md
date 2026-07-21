@@ -13,7 +13,7 @@ Lands a threat modeling session once review is settled.
 
 ## How to invoke
 
-> Land session
+> Finalize report
 
 ## Examples
 
@@ -23,6 +23,6 @@ Lands a threat modeling session once review is settled.
 - `/finalize-report <description>`: If not on the session branch, name the session
   so the agent can find its pull request.
 
-Use [`/finalize-report`](../finalize-report/README.md) first to scaffold the session,
-and [`/update-register`](../update-register/README.md) afterwards to keep the
-raised risks current.
+Use [`/scaffold-report`](../scaffold-report/README.md) first to scaffold the
+session, and [`/update-register`](../update-register/README.md) afterwards to
+keep the raised risks current.

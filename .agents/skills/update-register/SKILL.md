@@ -1,6 +1,13 @@
 ---
 name: update-register
-description: Update the living risk register between sessions — change a tracked risk's mitigation status, severity, residual risk, or review date in place, or promote an audit finding into a tracked risk, or retire a risk that no longer applies. Use when the user says "update the register", "mark risk TA1 as mitigated", "the MFA mitigation shipped", "review the register", or "retire this risk". Do not use this skill to run a new threat model — use scaffold-report for that.
+description: >-
+  Update the living risk register between sessions — change a tracked risk's
+  mitigation status, severity, residual risk, or review date in place, or
+  promote an audit finding into a tracked risk, or retire a risk that no
+  longer applies. Use when the user says "update the register", "mark risk
+  TA1 as mitigated", "the MFA mitigation shipped", "review the register", or
+  "retire this risk". Do not use this skill to run a new threat model — use
+  scaffold-report for that.
 license: MIT
 metadata:
   interactive: yes
@@ -11,6 +18,14 @@ metadata:
 Use this skill to keep the living [`risks/REGISTER.md`](../../../risks/REGISTER.md) current between sessions — updating a tracked risk's status in place as it evolves. Unlike a session report, the register is living documentation: it MUST reflect the current state of the system's security posture at all times.
 
 Do NOT use this skill to run a new threat modeling session — use [scaffold report](../scaffold-report/SKILL.md). Do NOT edit any merged session report; those are immutable.
+
+**Input:** Description of the change — REQUIRED. Which risk changed, and how
+(mitigation shipped, severity change, scheduled review, retirement, or an
+audit finding to promote). Prompt the user if not provided.
+
+**Output:** A `register/<slug>` branch, with the affected rows of
+`risks/REGISTER.md` updated in place, committed to a pull request opened
+against `main`, merged once the change it reflects is real.
 
 ## When to use
 

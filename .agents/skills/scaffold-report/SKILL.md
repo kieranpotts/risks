@@ -1,15 +1,31 @@
 ---
-name: draft-report
+name: scaffold-report
 description: >-
-  Scaffold a report for a threat modeling workshop — run a STRIDE-based (and, where relevant, LINDDUN / OWASP) threat model against a scoped system, write its report, seed the risk register, and open a pull request. Use this skill when the user wants to threat model a system, or says "run a threat modeling session", "threat model this", or "open a session PR". Do not use this skill to merge a session — use finalize-report for that. Do not use it to update an existing risk — use update-register.
+  Scaffold a report for a threat modeling workshop — run a STRIDE-based (and,
+  where relevant, LINDDUN / OWASP) threat model against a scoped system, write
+  its report, seed the risk register, and open a pull request. Use this skill
+  when the user wants to threat model a system, or says "run a threat
+  modeling session", "threat model this", or "open a session PR". Do not use
+  this skill to merge a session — use finalize-report for that. Do not use it
+  to update an existing risk — use update-register.
 license: MIT
 metadata:
   interactive: yes
 ---
 
-# Draft report
+# Scaffold report
 
 Scaffolds a threat modeling session: runs a structured threat model against a scoped system, and opens a pull request with its report and the new risk register rows it seeds. Like an audit, a session has no lifecycle state machine — this skill takes it from nothing to an open, reviewable pull request in one pass. It implements the session workflow from [TS-54](https://github.com/kieranpotts/standards/tree/dev/src/054).
+
+**Input:** Scope — REQUIRED. The system, subsystems, services, or data flows
+being threat modeled, and the `owner/repo@commit` or version where
+applicable. Frameworks — OPTIONAL, defaults to STRIDE. Prior session report
+and architecture/data-flow diagrams — OPTIONAL, if this revisits a system.
+
+**Output:** A `session/<slug>` branch, with `risks/YYYY-MM-DD-<slug>/README.md`
+written, new rows seeded into `risks/REGISTER.md`, a new row in
+`risks/INDEX.md`, committed to a pull request opened against `main` (ready
+for review, not draft).
 
 ## Before scaffolding
 
