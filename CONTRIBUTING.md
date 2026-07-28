@@ -91,6 +91,11 @@ newly-implemented mitigation strategies.
 - Session reports MUST be treated as immutable once merged. To reassess the
   system, hold a new session – a merged report MUST NOT be edited.
 
+- This repository is discovery and record-keeping only. It MUST NOT change any
+  code, and threat identification MUST NOT include actively exploiting the
+  system. Mitigation _work_ is tracked in the relevant code repository's own
+  issue tracker; the register links out to it.
+
 - The GitHub issue tracker MUST be used only for maintenance work on this
   repository itself.
 
