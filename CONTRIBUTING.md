@@ -13,26 +13,17 @@ risk rating.
 See also [TS-54](https://github.com/kieranpotts/standards/tree/latest/dev/src/054)
 for the technical standard that underpins this process.
 
-> [!NOTE]
-> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
-> SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
-> in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
+SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
+in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
 
-## Artifacts
+## Workflow
 
-This repository holds two types of artifact, each with its own workflow:
-
-- **Workshop reports** are point-in-time snapshots of the outcomes of threat
-  modeling workshops, immutable once merged to the `main` trunk.
-
-- **The register** is a living database of currently-tracked risks, edited
-  in-place as risks evolve.
-
-Threat modeling workshops, when they uncover new threats, will seed new entries
-in the risk register. From then on, the implementation of mitigation strategies
-and residual risks are tracked indefinitely via the register.
-
-## The workshop workflow
+> [!TIP]
+> [Agent skills](./.agents/skills/) are available to help automate some steps in
+> this workflow.
 
 1.  Scope the workshop. Decide what is being threat modeled – which systems,
     subsystems, services, or data flows are in-scope. Decide which threat
@@ -66,25 +57,20 @@ and residual risks are tracked indefinitely via the register.
 7.  Once review is settled, squash-merge the pull request, using the PR title as
     the merge-commit message. Delete the `report/*` branch.
 
-## The risk register workflow
+8.  Between workshops, the [risk register](./risks/REGISTER.md) MUST be kept
+    current as risks evolve. For example, when a mitigation strategy lands in
+    production, the associated risk should be reassessed, and the risk register
+    updated to reflect the evolved security profile of the system. To make a
+    change to the risk register, branch off `main` using the convention
+    `register/<slug>`, eg. `register/mfa-rollout` or `register/q3-review`.
 
-Between workshops, the [risk register](./risks/REGISTER.md) MUST be kept current
-as risks evolve. For example, when a mitigation strategy lands in production,
-the associated risk should be reassessed, and the risk register updated to
-reflect the evolved security profile of the system.
-
-To make a change to the risk register, follow these steps:
-
-1.  Branch off `main` using the convention `register/<slug>`, eg.
-    `register/mfa-rollout` or `register/q3-review`.
-
-2.  Update the affected rows of the [risk register](./risks/REGISTER.md) in
+9.  Update the affected rows of the [risk register](./risks/REGISTER.md) in
     place – mitigation status, severity, residual risk, and the review date.
     Do NOT touch any merged session report.
 
-3.  Commit with a `register: <description>` message and open a pull request.
+10. Commit with a `register: <description>` message and open a pull request.
 
-4.  Merge it once the change it reflects is real – eg. once the mitigation has
+11. Merge it once the change it reflects is real – eg. once the mitigation has
     actually shipped to production, so the register never overstates the
     system's security posture.
 
