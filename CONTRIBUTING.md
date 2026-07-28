@@ -57,26 +57,23 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 7.  Once review is settled, squash-merge the pull request, using the PR title as
     the merge-commit message. Delete the `report/*` branch.
 
-8.  Between workshops, the [risk register](./risks/REGISTER.md) MUST be kept
-    current as risks evolve. For example, when a mitigation strategy lands in
-    production, the associated risk should be reassessed, and the risk register
-    updated to reflect the evolved security profile of the system. To make a
-    change to the risk register, branch off `main` using the convention
-    `register/<slug>`, eg. `register/mfa-rollout` or `register/q3-review`.
+Between workshops, keep the risk register up-to-date, for example to reflect
+newly-implemented mitigation strategies.
 
-9.  Update the affected rows of the [risk register](./risks/REGISTER.md) in
+1.  Branch off `main` using the convention `register/<slug>`, eg.
+    `register/mfa-rollout` or `register/q3-review`.
+
+2.  Update the affected rows of the [risk register](./risks/REGISTER.md) in
     place – mitigation status, severity, residual risk, and the review date.
-    Do NOT touch any merged session report.
 
-10. Commit with a `register: <description>` message and open a pull request.
+3.  Commit with a `register: <description>` message and open a pull request.
 
-11. Merge it once the change it reflects is real – eg. once the mitigation has
-    actually shipped to production, so the register never overstates the
-    system's security posture.
+4.  Merge it once the change it reflects is real – eg. once the mitigation has
+    actually shipped to production.
 
 ## Rules
 
-- All documents MUST be written in American English.
+- All artifacts MUST be written in American English.
 
 - Every session report MUST be dated, scoped, and cite the exact system context
   assessed.
@@ -84,18 +81,18 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 - Every identified threat MUST be classified using a named framework and rated
   by likelihood and impact, using a consistent scoring scheme.
 
-- The register is the single source of truth for current risk status. Each
-  tracked risk lives in exactly one register row, updated in place. Do not
-  scatter status across session reports.
+- The register MUST be treated as the single source of truth for current risk
+  status. Each tracked risk lives in exactly one register row, updated in
+  place. Status MUST NOT be scattered across session reports.
 
 - Every register row MUST record a mitigation strategy (or an explicit, reasoned
   decision to accept the risk) and its residual risk.
 
-- Session reports are immutable once merged. To reassess the system, hold a new
-  session – never edit a merged report.
+- Session reports MUST be treated as immutable once merged. To reassess the
+  system, hold a new session – a merged report MUST NOT be edited.
 
-- The GitHub issue tracker is used only for maintenance work on this repository
-  itself.
+- The GitHub issue tracker MUST be used only for maintenance work on this
+  repository itself.
 
 ## Tools
 
