@@ -36,6 +36,12 @@ auditability, and other product development concerns. Threat modeling workshops
 evaluate a system's design against known security risks and question whether
 suitable mitigation strategies are in place.
 
+> [!NOTE]
+> This is a reference implementation of
+> [TS-54](https://github.com/kieranpotts/standards/tree/latest/dev/src/054),
+> a technical standard for running threat modeling workshops and maintaining
+> a risk register.
+
 ## Ecosystem
 
 This repository is one of six that form a coherent, version-controlled
