@@ -1,10 +1,10 @@
 # Scaffold report
 
-Scaffolds a report from a threat modeling workshop, ready to open for review.
+Scaffolds a report from a threat modeling workshop, opened as a draft.
 
 ## What it does
 
-- Creates a `session/<slug>` branch from `main`.
+- Creates a `report/<slug>` branch from `main`.
 
 - Runs a structured threat model (STRIDE, plus LINDDUN / OWASP where relevant)
   against the scoped system, per
@@ -13,7 +13,7 @@ Scaffolds a report from a threat modeling workshop, ready to open for review.
 - Writes the report to `risks/YYYY-MM-DD-<slug>/README.md`, seeds new rows into
   `risks/REGISTER.md`, and adds a row to `risks/INDEX.md`.
 
-- Commits, pushes, and opens a pull request titled `session: <description>`.
+- Commits, pushes, and opens a draft pull request titled `report: <description>`.
 
 ## How to invoke
 

@@ -3,13 +3,31 @@
 Skills available to agents in this repository are:
 
 - **[Scaffold report](./scaffold-report/):**
-  Scaffolds a threat modeling session.
+  Scaffolds a report for a threat modeling workshop.
 
 - **[Complete report](./complete-report/):**
-  Lands a finalize workshop report.
+  Lands a threat modeling session's report in the `main` trunk.
 
 - **[Update register](./update-register/):**
   Updates the living risk register.
+
+## Conventions
+
+A few structural conventions recur across these skill files:
+
+- **"References" closing sections.**
+  Some skills end with a `## References` section linking to related
+  documents, such as [`AGENTS.md`](../../../AGENTS.md) or sibling skills, for
+  further reading beyond the skill's own instructions.
+
+- **"Transition gates" sections.**
+  In repositories where documents move through a lifecycle state machine
+  (eg. `PROPOSED` → `ACCEPTED`), the skill that performs a transition
+  documents its entry conditions under a `## Transition gates: <FROM> →
+  <TO>` heading. This repository's register is a living document with no
+  such lifecycle — its rows are updated in place rather than transitioned
+  between states — so none of these skills carry a "Transition gates"
+  section.
 
 ## Compatibility
 

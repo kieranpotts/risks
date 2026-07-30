@@ -11,6 +11,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Update register
@@ -65,29 +66,29 @@ against `main`, merged once the change it reflects is real.
 
 ## Rules
 
--   **Never touch a merged session report.**
+-   **You MUST NOT edit a merged session report.**
 
     Session reports are immutable point-in-time snapshots. All ongoing status lives in the register.
 
--   **Update in place; never delete a row.**
+-   **You MUST update rows in place and MUST NOT delete a row.**
 
     Reference numbers are stable. Retire a risk by moving it to the "Retired risks" section with a reason, so the register keeps a full account of what was ever tracked.
 
--   **Don't overstate the posture.**
+-   **You MUST NOT mark a risk mitigated, or lower its residual risk, until the mitigation is genuinely in place.**
 
-    Do not mark a risk mitigated, or lower its residual risk, until the mitigation is genuinely in place. Merge the register change alongside — or after — the real-world change it describes.
+    Merge the register change alongside — or after — the real-world change it describes, so the register never overstates the posture.
 
--   **A reassessment that finds a _new_ threat is a session, not an update.**
+-   **A reassessment that finds a _new_ threat MUST be scaffolded as a session, not filed as an update.**
 
     If the change amounts to fresh threat identification rather than status-tracking of a known risk, use [scaffold report](../scaffold-report/SKILL.md) instead.
 
 ## Success criteria
 
-- Branch `register/<slug>` exists, and only `risks/REGISTER.md` is changed.
+- **Branch `register/<slug>` exists, and only `risks/REGISTER.md` is changed.**
 
-- The affected rows reflect the current, true status of each risk, with an updated `Reviewed` date.
+- **The affected rows reflect the current, true status of each risk, with an updated `Reviewed` date.**
 
-- A pull request titled `register: <short lowercase description>` is open (or merged, once the change is real).
+- **A pull request titled `register: <short lowercase description>` is open (or merged, once the change is real).**
 
 ## References
 
@@ -95,4 +96,4 @@ against `main`, merged once the change it reflects is real.
 
 - [`risks/REGISTER.md`](../../../risks/REGISTER.md): The living register and its fields.
 
-- [`scaffold-report`](../scaffold-report//): Runs a new threat model, which seeds the register in the first place.
+- [`scaffold-report`](../scaffold-report/): Runs a new threat model, which seeds the register in the first place.

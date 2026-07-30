@@ -5,27 +5,28 @@ description: >-
   where relevant, LINDDUN / OWASP) threat model against a scoped system, write
   its report, seed the risk register, and open a pull request. Use this skill
   when the user wants to threat model a system, or says "run a threat
-  modeling session", "threat model this", or "open a session PR". Do not use
-  this skill to merge a session — use complete-report for that. Do not use it
+  modeling session", "threat model this", or "open a report PR". Do not use
+  this skill to merge a report — use complete-report for that. Do not use it
   to update an existing risk — use update-register.
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Scaffold report
 
-Scaffolds a threat modeling session: runs a structured threat model against a scoped system, and opens a pull request with its report and the new risk register rows it seeds. Like an audit, a session has no lifecycle state machine — this skill takes it from nothing to an open, reviewable pull request in one pass. It implements the session workflow from [TS-54](https://github.com/kieranpotts/standards/tree/dev/src/054).
+Scaffolds a threat modeling session: runs a structured threat model against a scoped system, and opens a pull request with its report and the new risk register rows it seeds. Like an audit, a report has no lifecycle state machine — this skill takes it from nothing to an open, draft pull request, ready to run the session and write up the findings. It implements the session workflow from [TS-54](https://github.com/kieranpotts/standards/tree/dev/src/054).
 
 **Input:** Scope — REQUIRED. The system, subsystems, services, or data flows
 being threat modeled, and the `owner/repo@commit` or version where
 applicable. Frameworks — OPTIONAL, defaults to STRIDE. Prior session report
 and architecture/data-flow diagrams — OPTIONAL, if this revisits a system.
 
-**Output:** A `session/<slug>` branch, with `risks/YYYY-MM-DD-<slug>/README.md`
+**Output:** A `report/<slug>` branch, with `risks/YYYY-MM-DD-<slug>/README.md`
 written, new rows seeded into `risks/REGISTER.md`, a new row in
-`risks/INDEX.md`, committed to a pull request opened against `main` (ready
-for review, not draft).
+`risks/INDEX.md`, committed to a pull request opened against `main` as a
+draft.
 
 ## Before scaffolding
 
@@ -52,7 +53,7 @@ for review, not draft).
     ```sh
     git checkout main
     git pull
-    git checkout -b session/<slug>
+    git checkout -b report/<slug>
     ```
 
 3.  **Run the session.**
@@ -71,46 +72,46 @@ for review, not draft).
 
     ```sh
     git add risks/
-    git commit -m "session: <short lowercase description>"
-    git push -u origin session/<slug>
-    gh pr create --title "session: <short lowercase description>" --fill
+    git commit -m "report: <short lowercase description>"
+    git push -u origin report/<slug>
+    gh pr create --draft --title "report: <short lowercase description>" --fill
     ```
 
-    Open it ready for review, not as a draft. No discussion thread is required: a session report is findings to review via normal pull request comments, not a decision to debate.
+    Open it as a draft, not ready for review. No discussion thread is required: a session report is findings to review via normal pull request comments, not a decision to debate.
 
 ## Rules
 
--   **One session per branch and pull request.**
+-   **There MUST be exactly one session per branch and pull request.**
 
     Do not bundle multiple scopes into one PR — scaffold a separate session for each.
 
--   **Branch from `main`, not from any other branch.**
+-   **You MUST branch from `main`, not from any other branch.**
 
     Sessions are always cut from `main`. If local `main` is behind the remote, pull first.
 
--   **Discovery only — never exploit.**
+-   **You MUST NOT actively attack, exploit, or modify the running system or its code.**
 
-    Identify threats by reasoning about the design; do NOT actively attack, exploit, or modify the running system or its code. Mitigation _work_ is tracked in the code repository's own issue tracker, linked from the register.
+    Identify threats by reasoning about the design; discovery only, never exploit. Mitigation _work_ is tracked in the code repository's own issue tracker, linked from the register.
 
--   **Classify and rate every threat.**
+-   **Every threat MUST carry a framework classification (STRIDE, etc.) and a likelihood × impact rating.**
 
-    Every threat MUST carry a framework classification (STRIDE, etc.) and a likelihood × impact rating. An unrated threat is not a finished finding.
+    An unrated threat is not a finished finding.
 
--   **Do not restate existing register status.**
+-   **You MUST NOT silently duplicate an already-tracked risk.**
 
-    If a risk is already tracked, do not silently duplicate it. Note the overlap in the report and, if its rating has changed, flag it for [`/update-register`](../update-register/SKILL.md) rather than editing the register's status here beyond adding genuinely new rows.
+    If a risk is already tracked, note the overlap in the report and, if its rating has changed, flag it for [`/update-register`](../update-register/SKILL.md) rather than editing the register's status here beyond adding genuinely new rows.
 
 ## Success criteria
 
-- Branch `session/<slug>` exists and is checked out.
+- **Branch `report/<slug>` exists and is checked out.**
 
-- `risks/YYYY-MM-DD-<slug>/README.md` exists, following [`TEMPLATE.md`](../../../risks/TEMPLATE.md), with every threat classified and rated.
+- **`risks/YYYY-MM-DD-<slug>/README.md` exists, following [`TEMPLATE.md`](../../../risks/TEMPLATE.md), with every threat classified and rated.**
 
-- New rows for the risks worth tracking are added to `risks/REGISTER.md`.
+- **New rows for the risks worth tracking are added to `risks/REGISTER.md`.**
 
-- `risks/INDEX.md` has a new row for this session, at the top.
+- **`risks/INDEX.md` has a new row for this session, at the top.**
 
-- A pull request titled `session: <short lowercase description>` is open, ready for review.
+- **A pull request titled `report: <short lowercase description>` is open, as a draft.**
 
 ## References
 
