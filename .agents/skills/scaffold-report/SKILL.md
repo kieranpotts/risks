@@ -1,13 +1,10 @@
 ---
 name: scaffold-report
 description: >-
-  Scaffold a report for a threat modeling workshop — run a STRIDE-based (and,
-  where relevant, LINDDUN / OWASP) threat model against a scoped system, write
-  its report, seed the risk register, and open a pull request. Use this skill
-  when the user wants to threat model a system, or says "run a threat
-  modeling session", "threat model this", or "open a report PR". Do not use
-  this skill to merge a report — use complete-report for that. Do not use it
-  to update an existing risk — use update-register.
+  Scaffold a report for a threat modeling workshop. Use this skill when the
+  user wants to prepare for a new threat modeling workshop or to write up a
+  report from a recent workshop, or says something like "scaffold a report",
+  "prepare a threat modeling workshop report", or "draft a new report".
 license: MIT
 metadata:
   interactive: yes
@@ -23,24 +20,39 @@ register rows it seeds. Like an audit, a report has no lifecycle state machine
 run the session and write up the findings. It implements the session workflow
 from [TS-54](https://github.com/kieranpotts/standards/tree/dev/src/054).
 
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Scope — REQUIRED. The system, subsystems, services, or data flows being
+- **Scope — REQUIRED.** The system, subsystems, services, or data flows being
   threat modeled, and the `owner/repo@commit` or version where applicable.
 
-- Frameworks — OPTIONAL, defaults to STRIDE.
+- **Frameworks — OPTIONAL**, defaults to STRIDE.
 
-- Prior session report and architecture/data-flow diagrams — OPTIONAL, if
+- **Prior session report and architecture/data-flow diagrams — OPTIONAL**, if
   this revisits a system.
 
-## Output
+## Success criteria
 
-A `report/<slug>` branch, with `risks/YYYY-MM-DD-<slug>/README.md` written,
+You will achieve the following outcomes:
+
+<!-- A `report/<slug>` branch, with `risks/YYYY-MM-DD-<slug>/README.md` written,
 new rows seeded into `risks/REGISTER.md`, a new row in `risks/INDEX.md`,
-committed to a pull request opened against `main` as a draft.
+committed to a pull request opened against `main` as a draft. -->
+
+- Branch `report/<slug>` exists and is checked out.
+
+- `risks/YYYY-MM-DD-<slug>/README.md` exists, following
+  [`TEMPLATE.md`](../../../risks/TEMPLATE.md), with every threat classified
+  and rated.
+
+- New rows for the risks worth tracking are added to `risks/REGISTER.md`.
+
+- `risks/INDEX.md` has a new row for this session, at the top.
+
+- A pull request titled `report: <short lowercase description>` is open, as a
+  draft.
 
 ## Instructions
 
@@ -143,22 +155,7 @@ committed to a pull request opened against `main` as a draft.
   rather than editing the register's status here beyond adding genuinely new
   rows.
 
-## Success criteria
-
-- Branch `report/<slug>` exists and is checked out.
-
-- `risks/YYYY-MM-DD-<slug>/README.md` exists, following
-  [`TEMPLATE.md`](../../../risks/TEMPLATE.md), with every threat classified
-  and rated.
-
-- New rows for the risks worth tracking are added to `risks/REGISTER.md`.
-
-- `risks/INDEX.md` has a new row for this session, at the top.
-
-- A pull request titled `report: <short lowercase description>` is open, as a
-  draft.
-
 ## References
 
-- [TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/dev/src/054):
+- [TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054):
   The standard this implements.

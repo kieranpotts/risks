@@ -1,13 +1,10 @@
 ---
 name: update-register
 description: >-
-  Update the living risk register between sessions — change a tracked risk's
-  mitigation status, severity, residual risk, or review date in place, or
-  promote an audit finding into a tracked risk, or retire a risk that no
-  longer applies. Use when the user says "update the register", "mark risk
-  TA1 as mitigated", "the MFA mitigation shipped", "review the register", or
-  "retire this risk". Do not use this skill to run a new threat model — use
-  scaffold-report for that.
+  Update the living risk register without conducting a threat modeling workshop.
+  Use this skill when the user says something like "update the register",
+  "mark risk TA1 as mitigated", "the MFA mitigation shipped",
+  "review the register", or "retire this risk".
 license: MIT
 metadata:
   interactive: yes
@@ -37,20 +34,30 @@ Do NOT use this skill to run a new threat modeling session — use
 [scaffold report](../scaffold-report/SKILL.md). Do NOT edit any merged
 session report; those are immutable.
 
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Description of the change — REQUIRED. Which risk changed, and how
+- **Description of the change — REQUIRED.** Which risk changed, and how
   (mitigation shipped, severity change, scheduled review, retirement, or an
   audit finding to promote). Prompt the user if not provided.
 
-## Output
+## Success criteria
 
-A `register/<slug>` branch, with the affected rows of `risks/REGISTER.md`
+You will achieve the following outcomes:
+
+<!-- A `register/<slug>` branch, with the affected rows of `risks/REGISTER.md`
 updated in place, committed to a pull request opened against `main`,
-merged once the change it reflects is real.
+merged once the change it reflects is real. -->
+
+- Branch `register/<slug>` exists, and only `risks/REGISTER.md` is changed.
+
+- The affected rows reflect the current, true status of each risk, with an
+  updated `Reviewed` date.
+
+- A pull request titled `register: <short lowercase description>` is open
+  (or merged, once the change is real).
 
 ## Instructions
 
@@ -114,13 +121,3 @@ merged once the change it reflects is real.
   If the change amounts to fresh threat identification rather than
   status-tracking of a known risk, use
   [scaffold report](../scaffold-report/SKILL.md) instead.
-
-## Success criteria
-
-- Branch `register/<slug>` exists, and only `risks/REGISTER.md` is changed.
-
-- The affected rows reflect the current, true status of each risk, with an
-  updated `Reviewed` date.
-
-- A pull request titled `register: <short lowercase description>` is open
-  (or merged, once the change is real).

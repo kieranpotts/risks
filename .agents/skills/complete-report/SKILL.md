@@ -1,11 +1,10 @@
 ---
 name: complete-report
 description: >-
-  Land a threat modeling session — merge its pull request into main once
-  review is settled. Use when the user says "land this session", "merge the
-  report", "the threat model is ready", or "land the report PR". Do not use
-  this skill to scaffold a report. Do not use it to update a risk — use
-  update-register.
+  Land in `main` the report from a threat modeling workshop. Use this skill when
+  the user says something like "land this report", "merge the report", or
+  "the threat modeling workshop report is done". Do not use this skill to
+  update the risk register without also landing a new workshop report.
 license: MIT
 metadata:
   interactive: yes
@@ -14,21 +13,30 @@ metadata:
 
 # Complete report
 
-Use this skill to land a threat modeling session — merge its pull request into `main` once review is settled. Like [`complete-audit`](https://github.com/kieranpotts/audits/tree/main/.agents/skills/complete-audit), there is no "production must be live" gate: a session reports on the present state of a system, it does not describe a future one, so nothing needs to have shipped first. (Register updates that reflect a future state — eg. a mitigation not yet shipped — are handled separately by [`/update-register`](../update-register/SKILL.md).)
+Land a report from a threat modeling workshop in the `main` trunk.
 
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the session from the checked-out branch
+- **Target — REQUIRED.** Infer the session from the checked-out branch
   (`report/<slug>`). If on `main`, use the user's description, or list open
   report pull requests and ask the user to choose.
 
-## Output
+## Success criteria
 
-The pull request squash-merged into `main` with a `report: <description>`
-message, and its branch deleted.
+You will achieve the following outcomes:
+
+<!-- The pull request squash-merged into `main` with a `report: <description>`
+message, and its branch deleted. -->
+
+- The pull request is squash-merged into `main` with a `report: <description>`
+  message, and the branch is deleted.
+
+- `risks/INDEX.md` on `main` includes the new session's row, and
+  `risks/REGISTER.md` includes its new rows (both already present from
+  `/scaffold-report`, now landed).
 
 ## Instructions
 
@@ -75,12 +83,3 @@ message, and its branch deleted.
   register update is needed at merge time.
 
 - You MUST NOT merge without explicit instruction.
-
-## Success criteria
-
-- The pull request is squash-merged into `main` with a `report: <description>`
-  message, and the branch is deleted.
-
-- `risks/INDEX.md` on `main` includes the new session's row, and
-  `risks/REGISTER.md` includes its new rows (both already present from
-  `/scaffold-report`, now landed).
