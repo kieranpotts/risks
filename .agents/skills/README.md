@@ -1,44 +1,36 @@
-# Agent skills
+# Agent skills for managing the risk register and threat modeling workshop reports
 
-Skills available to agents in this repository are:
+The skills available to agents in this project are:
 
-- **[Scaffold report](./scaffold-report/):**
-  Scaffolds a report for a threat modeling workshop.
+- **[scaffold-report](./scaffold-report/):** \
+  Scaffolds a report for a threat modeling workshop, ready for the user to write up.
 
-- **[Complete report](./complete-report/):**
+- **[complete-report](./complete-report/):** \
   Lands a threat modeling session's report in the `main` trunk.
 
-- **[Update register](./update-register/):**
-  Updates the living risk register.
+- **[update-register](./update-register/):** \
+  For _ad hoc_ updates to the risk register.
 
-## Conventions
+The **scaffold-report** skill....
 
-A few structural conventions recur across these skill files:
+```mermaid
+flowchart LR
+  scaffold["🤖<br/>scaffold report"]:::agentic
+  workshop["🧑<br/>threat modeling workshop"]:::anthropic
+  complete["🤖<br/>complete report"]:::agentic
+  update["🤖<br/>update register"]:::agentic
 
-- **"References" closing sections.**
-  Some skills end with a `## References` section linking to related
-  documents, such as [`AGENTS.md`](../../../AGENTS.md) or sibling skills, for
-  further reading beyond the skill's own instructions.
+  scaffold ==> workshop
+  workshop ==> complete
+  complete -.-> update
 
-- **"Transition gates" sections.**
-  In repositories where documents move through a lifecycle state machine
-  (eg. `PROPOSED` → `ACCEPTED`), the skill that performs a transition
-  documents its entry conditions under a `## Transition gates: <FROM> →
-  <TO>` heading. This repository's register is a living document with no
-  such lifecycle — its rows are updated in place rather than transitioned
-  between states — so none of these skills carry a "Transition gates"
-  section.
+  classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
+  classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
+  classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
+```
 
 ## Compatibility
 
-Agent harnesses are converging on the `./.agents/skills/` path for dynamic
-retrieval of project-specific skills. This is compatible with the Agent Skills
-convention — see https://agentskills.io/.
-
-As of May 2026, OpenAI Codex, GitHub Copilot, Gemini CLI, Google Antigravity,
-OpenCode, and Pi will auto-discover these skills, but Claude Code and Cursor
-will not.
-
-You will require workarounds for incompatible harnesses. For Claude Code, you
-can simply symlink this directory from `.claude/skills/`. Cursor requires more
-effort to transpile these skills into its native "rules" format.
+These skills are compatible with the [Agent Skills](https://agentskills.io/)
+convention. Most agent harnesses support this convention natively, but
+workarounds may be required for harnesses that do not.
