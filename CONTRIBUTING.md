@@ -50,11 +50,13 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 6.  Commit your changes with the message `report: <description>`, where
     `<description>` is a short prose title, written full lowercase, eg.
-    `report: payment flow threat model`. Open a pull request with the same
-    title as the commit nessage. Gather feedback via normal pull request
-    comments.
+    `report: payment flow threat model`. Open a pull request as a draft, with
+    the same title as the commit message.
 
-7.  Once review is settled, squash-merge the pull request, using the PR title as
+7.  When the report is ready for review, transition the pull request out of
+    its draft state. Gather feedback via normal pull request comments.
+
+8.  Once review is settled, squash-merge the pull request, using the PR title as
     the merge-commit message. Delete the `report/*` branch.
 
 Between workshops, keep the risk register up-to-date, for example to reflect

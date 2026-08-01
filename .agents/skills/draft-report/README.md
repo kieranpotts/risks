@@ -29,7 +29,8 @@ Drafts a report from a threat modeling workshop, opened as a draft.
 - `/draft-report <description>`: Provide the scope, from which the agent
   infers the slug and runs the workshop directly.
 
-Once open, gather feedback via normal pull request comments, then use
+Once open, use [`/review-report`](../review-report/README.md) to take it out
+of draft, gather feedback via normal pull request comments, then use
 [`/complete-report`](../complete-report/README.md) to merge it. Thereafter,
 keep the raised risks current with
 [`/update-register`](../update-register/README.md).

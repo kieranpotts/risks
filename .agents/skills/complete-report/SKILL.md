@@ -52,7 +52,16 @@ message, and its branch deleted. -->
 
     Confirm review feedback on the pull request has been addressed. Do not merge over unresolved comments without the user's explicit instruction.
 
-3.  Merge the pull request.
+3.  Confirm the PR is not a draft.
+
+    ```sh
+    gh pr view <number> --json isDraft
+    ```
+
+    If it is still a draft, stop and direct the user to
+    [`/review-report`](../review-report/SKILL.md) first.
+
+4.  Merge the pull request.
 
     Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it with a `report: <description>` message, and delete the source branch on the upstream repository:
 
@@ -62,7 +71,7 @@ message, and its branch deleted. -->
 
     The report, its `INDEX.md` row, and the new `REGISTER.md` rows all land together.
 
-4.  Confirm the branch was deleted.
+5.  Confirm the branch was deleted.
 
     In case the branch was not automatically deleted from the upstream repository, delete it directly:
 
@@ -71,6 +80,10 @@ message, and its branch deleted. -->
     ```
 
 ## Rules
+
+- You MUST NOT merge a draft PR.
+
+  Run [`/review-report`](../review-report/SKILL.md) first.
 
 - You MUST NOT merge over unresolved review comments without explicit
   instruction.

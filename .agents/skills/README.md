@@ -6,6 +6,10 @@ The skills available to agents in this project are:
   Cuts a `report/<slug>` branch from `main`, prepares a fresh report from the
   template, and opens a pull request in a draft state.
 
+- **[review-report](./review-report/):** \
+  Checks the report has enough substance for review, and takes the pull
+  request out of draft.
+
 - **[complete-report](./complete-report/):** \
   Checks the workshop report and merges it into the `main` trunk.
 
@@ -15,21 +19,25 @@ The skills available to agents in this project are:
 
 The **draft-report** skill prepares a new, blank workshop report as a
 draft PR. After this step, the user runs the threat modeling workshop and
-writes up its findings. When the report is done, the **complete-report**
-skill can be used to get an agent to check it over and land the report in
-the `main` trunk. Independently of any workshop, **update-register** keeps
-the living risk register current — marking mitigations shipped, refreshing
-reviews, or retiring risks that no longer apply.
+writes up its findings. Once there's enough to review, **review-report**
+takes the pull request out of draft. When the report is done, the
+**complete-report** skill can be used to get an agent to check it over and
+land the report in the `main` trunk. Independently of any workshop,
+**update-register** keeps the living risk register current — marking
+mitigations shipped, refreshing reviews, or retiring risks that no longer
+apply.
 
 ```mermaid
 flowchart LR
   draft["🤖<br/><b>draft-report</b>"]:::agentic
   workshop["🧑<br/>threat modeling workshop"]:::anthropic
+  review["🤖<br/><b>review-report</b>"]:::agentic
   complete["🤖<br/><b>complete-report</b>"]:::agentic
   update["🤖<br/><b>update-register</b>"]:::agentic
 
   draft ==> workshop
-  workshop ==> complete
+  workshop ==> review
+  review ==> complete
   complete -.-> update
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px

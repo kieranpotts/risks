@@ -6,6 +6,9 @@ Lands a threat modeling session once review is settled.
 
 - Confirms review feedback on the pull request has been addressed.
 
+- Confirms the pull request is not still a draft (see
+  [`/review-report`](../review-report/README.md)).
+
 - Squash-merges the pull request with a `report: <description>` message.
 
 - Deletes the branch. The report, its index row, and the new register rows land
@@ -24,5 +27,6 @@ Lands a threat modeling session once review is settled.
   session so the agent can find its pull request.
 
 Use [`/draft-report`](../draft-report/README.md) first to draft the
-session, and [`/update-register`](../update-register/README.md) afterwards to
+session, [`/review-report`](../review-report/README.md) to take it out of
+draft, and [`/update-register`](../update-register/README.md) afterwards to
 keep the raised risks current.
