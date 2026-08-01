@@ -24,6 +24,12 @@ Or specify the target PR:
 
 > Review #42
 
+## Recommended models
+
+A fast or mid-tier model is enough. The check is completeness — header
+metadata, at least one rated entry, register rows present — not a judgment
+on the threat model's substance.
+
 ## Notes
 
 This is a light check, not a completeness gate — mitigation strategies and

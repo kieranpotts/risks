@@ -21,6 +21,11 @@ Merged session reports are never touched.
 
 > The MFA mitigation for TA1 is shipped.
 
+## Recommended models
+
+A fast or mid-tier model is enough. Updating specific rows to match a
+described change is a targeted edit, not an open-ended judgment call.
+
 ## Examples
 
 - `/update-register`: The agent asks which risk changed and how, then makes the

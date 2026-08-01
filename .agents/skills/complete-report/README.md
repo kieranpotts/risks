@@ -18,6 +18,11 @@ Lands a threat modeling session once review is settled.
 
 > Complete report
 
+## Recommended models
+
+A fast, inexpensive model is enough. Confirming feedback is addressed and
+merging is a mechanical check.
+
 ## Examples
 
 - `/complete-report`: The agent infers the pull request from the checked-out

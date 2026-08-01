@@ -21,6 +21,14 @@ Drafts a report from a threat modeling workshop, opened as a draft.
 
 > Threat model the payment flow.
 
+## Recommended models
+
+A premium reasoning model is worth it here. Unlike the other skills in this
+collection, this one runs the actual threat modeling workshop — identifying
+STRIDE/LINDDUN/OWASP threats takes the same kind of independent judgment as
+the [**probe**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/probe)
+skill it's built on.
+
 ## Examples
 
 - `/draft-report`: The agent asks for the scope and frameworks, then

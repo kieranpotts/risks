@@ -1,8 +1,11 @@
-# Agent skills for managing the risk register and threat modeling workshop reports
+# Agent skills
 
-The skills available to agents in this project are:
+The following skills are available to support the management of the risk
+register and the lifecycle of threat modeling workshop reports via AI agents.
 
 - **[draft-report](./draft-report/):** \
+  Scaffolds a blank report to capture the findings from a new threat
+  modeling workshop.
   Cuts a `report/<slug>` branch from `main`, prepares a fresh report from the
   template, and opens a pull request in a draft state.
 
@@ -17,15 +20,7 @@ The skills available to agents in this project are:
   Updates the living risk register in place — mitigations shipped, reviews
   due, or risks retired — without a workshop.
 
-The **draft-report** skill prepares a new, blank workshop report as a
-draft PR. After this step, the user runs the threat modeling workshop and
-writes up its findings. Once there's enough to review, **review-report**
-takes the pull request out of draft. When the report is done, the
-**complete-report** skill can be used to get an agent to check it over and
-land the report in the `main` trunk. Independently of any workshop,
-**update-register** keeps the living risk register current — marking
-mitigations shipped, refreshing reviews, or retiring risks that no longer
-apply.
+## Workflow
 
 ```mermaid
 flowchart LR
@@ -45,11 +40,13 @@ flowchart LR
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-These skills handle process, not substance: how a workshop report is
-drafted, reviewed, and landed in `main`. For the threat modeling itself —
-running the workshop and identifying the threats — use the
+The skills in this project are focused on the mechanics of managing the lifecycle of
+threat modeling workshop reports and the risk register.
+For help with the threat modeling process itself — running a workshop and
+identifying new and changed threats — you may instruct agents to use the
 [**probe**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/probe)
 skill in my global skills collection.
+
 
 ## Compatibility
 
