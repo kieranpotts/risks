@@ -36,7 +36,7 @@ message, and its branch deleted. -->
 
 - `risks/INDEX.md` on `main` includes the new session's row, and
   `risks/REGISTER.md` includes its new rows (both already present from
-  `/scaffold-report`, now landed).
+  `/draft-report`, now landed).
 
 ## Instructions
 
@@ -79,7 +79,7 @@ message, and its branch deleted. -->
 
   `report: <short lowercase description>`. The report, its `INDEX.md` row, and
   the register rows were all added together in
-  [`/scaffold-report`](../scaffold-report/SKILL.md), so no further index or
+  [`/draft-report`](../draft-report/SKILL.md), so no further index or
   register update is needed at merge time.
 
 - You MUST NOT merge without explicit instruction.

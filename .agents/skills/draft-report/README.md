@@ -1,6 +1,6 @@
-# Scaffold report
+# Draft report
 
-Scaffolds a report from a threat modeling workshop, opened as a draft.
+Drafts a report from a threat modeling workshop, opened as a draft.
 
 ## What it does
 
@@ -17,16 +17,16 @@ Scaffolds a report from a threat modeling workshop, opened as a draft.
 
 ## How to invoke
 
-> Scaffold report
+> Draft report
 
 > Threat model the payment flow.
 
 ## Examples
 
-- `/scaffold-report`: The agent asks for the scope and frameworks, then
-  scaffolds the branch and PR.
+- `/draft-report`: The agent asks for the scope and frameworks, then
+  drafts the branch and PR.
 
-- `/scaffold-report <description>`: Provide the scope, from which the agent
+- `/draft-report <description>`: Provide the scope, from which the agent
   infers the slug and runs the workshop directly.
 
 Once open, gather feedback via normal pull request comments, then use

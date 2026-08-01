@@ -23,6 +23,6 @@ Lands a threat modeling session once review is settled.
 - `/complete-report <description>`: If not on the report branch, name the
   session so the agent can find its pull request.
 
-Use [`/scaffold-report`](../scaffold-report/README.md) first to scaffold the
+Use [`/draft-report`](../draft-report/README.md) first to draft the
 session, and [`/update-register`](../update-register/README.md) afterwards to
 keep the raised risks current.

@@ -1,9 +1,9 @@
 ---
-name: scaffold-report
+name: draft-report
 description: >-
-  Scaffold a report for a threat modeling workshop. Use this skill when the
+  Draft a report for a threat modeling workshop. Use this skill when the
   user wants to prepare for a new threat modeling workshop or to write up a
-  report from a recent workshop, or says something like "scaffold a report",
+  report from a recent workshop, or says something like "draft a report",
   "prepare a threat modeling workshop report", or "draft a new report".
 license: MIT
 metadata:
@@ -11,9 +11,9 @@ metadata:
   preferred_model: prose-writing
 ---
 
-# Scaffold report
+# Draft report
 
-Scaffolds a threat modeling session: runs a structured threat model against a
+Drafts a threat modeling session: runs a structured threat model against a
 scoped system, and opens a pull request with its report and the new risk
 register rows it seeds. Like an audit, a report has no lifecycle state machine
 — this skill takes it from nothing to an open, draft pull request, ready to
@@ -128,7 +128,7 @@ committed to a pull request opened against `main` as a draft. -->
 
 - There MUST be exactly one session per branch and pull request.
 
-  Do not bundle multiple scopes into one PR — scaffold a separate session for
+  Do not bundle multiple scopes into one PR — draft a separate session for
   each.
 
 - You MUST branch from `main`, not from any other branch.

@@ -31,7 +31,7 @@ Use it when:
   tracking over time — promote it into a new register row.
 
 Do NOT use this skill to run a new threat modeling session — use
-[scaffold report](../scaffold-report/SKILL.md). Do NOT edit any merged
+[draft report](../draft-report/SKILL.md). Do NOT edit any merged
 session report; those are immutable.
 
 ## Parameters
@@ -115,9 +115,9 @@ merged once the change it reflects is real. -->
   Merge the register change alongside — or after — the real-world change it
   describes, so the register never overstates the posture.
 
-- A reassessment that finds a new threat MUST be scaffolded as a session,
+- A reassessment that finds a new threat MUST be drafted as a session,
   not filed as an update.
 
   If the change amounts to fresh threat identification rather than
   status-tracking of a known risk, use
-  [scaffold report](../scaffold-report/SKILL.md) instead.
+  [draft report](../draft-report/SKILL.md) instead.

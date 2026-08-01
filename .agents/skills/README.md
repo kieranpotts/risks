@@ -2,7 +2,7 @@
 
 The skills available to agents in this project are:
 
-- **[scaffold-report](./scaffold-report/):** \
+- **[draft-report](./draft-report/):** \
   Cuts a `report/<slug>` branch from `main`, prepares a fresh report from the
   template, and opens a pull request in a draft state.
 
@@ -13,7 +13,7 @@ The skills available to agents in this project are:
   Updates the living risk register in place — mitigations shipped, reviews
   due, or risks retired — without a workshop.
 
-The **scaffold-report** skill prepares a new, blank workshop report as a
+The **draft-report** skill prepares a new, blank workshop report as a
 draft PR. After this step, the user runs the threat modeling workshop and
 writes up its findings. When the report is done, the **complete-report**
 skill can be used to get an agent to check it over and land the report in
@@ -23,12 +23,12 @@ reviews, or retiring risks that no longer apply.
 
 ```mermaid
 flowchart LR
-  scaffold["🤖<br/><b>scaffold-report</b>"]:::agentic
+  draft["🤖<br/><b>draft-report</b>"]:::agentic
   workshop["🧑<br/>threat modeling workshop"]:::anthropic
   complete["🤖<br/><b>complete-report</b>"]:::agentic
   update["🤖<br/><b>update-register</b>"]:::agentic
 
-  scaffold ==> workshop
+  draft ==> workshop
   workshop ==> complete
   complete -.-> update
 
@@ -38,7 +38,7 @@ flowchart LR
 ```
 
 These skills handle process, not substance: how a workshop report is
-scaffolded, reviewed, and landed in `main`. For the threat modeling itself —
+drafted, reviewed, and landed in `main`. For the threat modeling itself —
 running the workshop and identifying the threats — use the
 [**probe**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/probe)
 skill in my global skills collection.
