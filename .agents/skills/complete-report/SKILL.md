@@ -35,9 +35,9 @@ message, and its branch deleted. -->
 - The pull request is squash-merged into `main` with a `report: <description>`
   message, and the branch is deleted.
 
-- `risks/INDEX.md` on `main` includes the new session's row, and
-  `risks/REGISTER.md` includes its new rows (both already present from
-  `/draft-report`, now landed).
+- `risks/INDEX.md` on `main` includes the new session's row (added when the
+  report was scaffolded), and `risks/REGISTER.md` includes the rows the
+  assessment raised — both now landed.
 
 ## Instructions
 
@@ -91,9 +91,9 @@ message, and its branch deleted. -->
 
 - You MUST squash-merge with the conventional message.
 
-  `report: <short lowercase description>`. The report, its `INDEX.md` row, and
-  the register rows were all added together in
-  [`/draft-report`](../draft-report/SKILL.md), so no further index or
-  register update is needed at merge time.
+  `report: <short lowercase description>`. The report and its `INDEX.md` row
+  were added when the report was scaffolded, and the register rows when the
+  assessment ran — all on this branch, so no further index or register update
+  is needed at merge time.
 
 - You MUST NOT merge without explicit instruction.

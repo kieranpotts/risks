@@ -8,6 +8,8 @@ register and the lifecycle of threat modeling workshop reports via AI agents.
   modeling workshop.
   Cuts a `report/<slug>` branch from `main`, prepares a fresh report from the
   template, and opens a pull request in a draft state.
+  It does not run the assessment — the workshop is authored into the report
+  this skill creates.
 
 - **[review-report](./review-report/):** \
   Checks the report has enough substance for review, and takes the pull
@@ -25,7 +27,7 @@ register and the lifecycle of threat modeling workshop reports via AI agents.
 ```mermaid
 flowchart LR
   draft["🤖<br/><b>draft-report</b>"]:::agentic
-  workshop["🧑<br/>threat modeling workshop"]:::anthropic
+  workshop["🧑🤖<br/>run the workshop,<br/>write findings and<br/>register rows"]:::anthropic
   review["🤖<br/><b>review-report</b>"]:::agentic
   complete["🤖<br/><b>complete-report</b>"]:::agentic
   update["🤖<br/><b>update-register</b>"]:::agentic
