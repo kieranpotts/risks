@@ -6,7 +6,7 @@ description: >-
   "merge the report", or "the threat modeling workshop report is done". Do not
   use this skill to update the risk register without also landing a new
   workshop report.
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

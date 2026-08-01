@@ -5,7 +5,7 @@ description: >-
   Use this skill when the user says something like "update the register",
   "mark risk TA1 as mitigated", "the MFA mitigation shipped",
   "review the register", or "retire this risk".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
@@ -65,7 +65,7 @@ merged once the change it reflects is real. -->
 
     ```sh
     git checkout main
-    git pull
+    git pull --rebase
     git checkout -b register/<slug>
     ```
 

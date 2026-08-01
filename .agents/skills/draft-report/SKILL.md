@@ -5,7 +5,7 @@ description: >-
   user wants to prepare for a new threat modeling workshop or to write up a
   report from a recent workshop, or says something like "draft a report",
   "prepare a threat modeling workshop report", or "draft a new report".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
@@ -84,7 +84,7 @@ draft. -->
 
     ```sh
     git checkout main
-    git pull
+    git pull --rebase
     git checkout -b report/<slug>
     ```
 
