@@ -2,9 +2,10 @@
 name: complete-report
 description: >-
   Land in `main` the report from a threat modeling workshop. Use this skill when
-  the user says something like "land this report", "merge the report", or
-  "the threat modeling workshop report is done". Do not use this skill to
-  update the risk register without also landing a new workshop report.
+  the user says something like "complete report", "land this report",
+  "merge the report", or "the threat modeling workshop report is done". Do not
+  use this skill to update the risk register without also landing a new
+  workshop report.
 license: MIT
 metadata:
   interactive: yes

@@ -1,18 +1,6 @@
 # Complete report
 
-Lands a threat modeling session once review is settled.
-
-## What it does
-
-- Confirms review feedback on the pull request has been addressed.
-
-- Confirms the pull request is not still a draft (see
-  [`/review-report`](../review-report/README.md)).
-
-- Squash-merges the pull request with a `report: <description>` message.
-
-- Deletes the branch. The report, its index row, and the new register rows land
-  together.
+Checks the workshop report and merges it into the `main` trunk.
 
 ## How to invoke
 
@@ -20,18 +8,5 @@ Lands a threat modeling session once review is settled.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. Confirming feedback is addressed and
-merging is a mechanical check.
-
-## Examples
-
-- `/complete-report`: The agent infers the pull request from the checked-out
-  `report/<slug>` branch, confirms it's ready, and merges it.
-
-- `/complete-report <description>`: If not on the report branch, name the
-  session so the agent can find its pull request.
-
-Use [`/draft-report`](../draft-report/README.md) first to draft the
-session, [`/review-report`](../review-report/README.md) to take it out of
-draft, and [`/update-register`](../update-register/README.md) afterwards to
-keep the raised risks current.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

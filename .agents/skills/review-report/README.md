@@ -1,16 +1,7 @@
 # Review report
 
-Takes a threat modeling workshop report's pull request out of draft once it
-has enough substance for review.
-
-## What it does
-
-- Identifies the session from the current branch (or asks).
-
-- Checks the header metadata is filled in, the threat assessment has at
-  least one rated entry, and every raised risk has a matching register row.
-
-- Marks the pull request ready for review (`gh pr ready`).
+Checks the report has enough substance for review, and takes the pull
+request out of draft.
 
 ## How to invoke
 
@@ -26,12 +17,5 @@ Or specify the target PR:
 
 ## Recommended models
 
-A fast or mid-tier model is enough. The check is completeness — header
-metadata, at least one rated entry, register rows present — not a judgment
-on the threat model's substance.
-
-## Notes
-
-This is a light check, not a completeness gate — mitigation strategies and
-follow-ups MAY still evolve based on review feedback. Once review is
-settled, use [`/complete-report`](../complete-report/README.md) to land it.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.
