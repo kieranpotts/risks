@@ -37,15 +37,15 @@ environment, if possible.
 
 You will achieve the following outcomes:
 
-- The PR is no longer a draft (`isDraft: false`).
+- The PR MUST no longer be a draft (`isDraft: false`).
 
-- The header metadata (facilitator, workshop date, scope, frameworks, PR) is
-  filled in.
+- The header metadata (facilitator, workshop date, scope, frameworks, PR)
+  MUST be filled in.
 
-- The threat assessment has at least one rated entry, and every risk it
-  raises has a matching row in `risks/REGISTER.md`.
+- The threat assessment MUST have at least one rated entry, and every risk
+  it raises MUST have a matching row in `risks/REGISTER.md`.
 
-- No literal template placeholder text remains in the header.
+- Literal template placeholder text MUST NOT remain in the header.
 
 ## Instructions
 

@@ -32,12 +32,12 @@ You will achieve the following outcomes:
 <!-- The pull request squash-merged into `main` with a `report: <description>`
 message, and its branch deleted. -->
 
-- The pull request is squash-merged into `main` with a `report: <description>`
-  message, and the branch is deleted.
+- The pull request MUST be squash-merged into `main` with a
+  `report: <description>` message, and the branch MUST be deleted.
 
-- `risks/INDEX.md` on `main` includes the new session's row (added when the
-  report was scaffolded), and `risks/REGISTER.md` includes the rows the
-  assessment raised — both now landed.
+- `risks/INDEX.md` on `main` MUST include the new session's row (added when
+  the report was scaffolded), and `risks/REGISTER.md` MUST include the rows
+  the assessment raised — both now landed.
 
 ## Instructions
 

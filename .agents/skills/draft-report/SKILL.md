@@ -44,20 +44,20 @@ created from the template and its header filled in, a new row in
 `risks/INDEX.md`, committed to a pull request opened against `main` as a
 draft. -->
 
-- Branch `report/<slug>` exists and is checked out.
+- Branch `report/<slug>` MUST exist and be checked out.
 
-- `risks/YYYY-MM-DD-<slug>/README.md` exists, a copy of
+- `risks/YYYY-MM-DD-<slug>/README.md` MUST exist, a copy of
   [`TEMPLATE.md`](../../../risks/TEMPLATE.md) with the metadata header filled
   in (facilitator, workshop date, scope, frameworks, PR) and the assessment
   sections left as placeholders.
 
-- `risks/INDEX.md` has a new row for this session, at the top.
+- `risks/INDEX.md` MUST have a new row for this session, at the top.
 
-- A pull request titled `report: <short lowercase description>` is open, as a
-  draft.
+- A pull request titled `report: <short lowercase description>` MUST be
+  open, as a draft.
 
-- The user has been directed to run the assessment and write the findings
-  into the scaffolded report.
+- The user MUST have been directed to run the assessment and write the
+  findings into the scaffolded report.
 
 ## Instructions
 

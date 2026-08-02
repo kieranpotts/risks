@@ -51,13 +51,14 @@ You will achieve the following outcomes:
 updated in place, committed to a pull request opened against `main`,
 merged once the change it reflects is real. -->
 
-- Branch `register/<slug>` exists, and only `risks/REGISTER.md` is changed.
+- Branch `register/<slug>` MUST exist, and only `risks/REGISTER.md` MUST be
+  changed.
 
-- The affected rows reflect the current, true status of each risk, with an
-  updated `Reviewed` date.
+- The affected rows MUST reflect the current, true status of each risk, with
+  an updated `Reviewed` date.
 
-- A pull request titled `register: <short lowercase description>` is open
-  (or merged, once the change is real).
+- A pull request titled `register: <short lowercase description>` MUST be
+  open (or merged, once the change is real).
 
 ## Instructions
 
