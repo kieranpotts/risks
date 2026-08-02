@@ -8,5 +8,5 @@ Checks the workshop report and merges it into the `main` trunk.
 
 ## Recommended models
 
-A fast, cheap model is sufficient to run this skill, which involves only
-mechanical tasks. There are no judgment calls that benefit from deep reasoning.
+A mid-tier model is sufficient for this skill. The merge is mechanical, but
+judging whether review feedback is settled requires a bit more effort.

@@ -11,5 +11,6 @@ due, or risks retired — without a workshop.
 
 ## Recommended models
 
-A fast, cheap model is sufficient to run this skill, which involves only
-mechanical tasks. There are no judgment calls that benefit from deep reasoning.
+A mid-tier model is sufficient for this skill. Editing the rows is mechanical,
+but judging whether a mitigation has genuinely shipped requires a bit more
+effort.
