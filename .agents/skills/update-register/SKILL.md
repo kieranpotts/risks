@@ -45,8 +45,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- A `register/<slug>` branch, with the affected rows of `risks/REGISTER.md`
 updated in place, committed to a pull request opened against `main`,
 merged once the change it reflects is real. -->

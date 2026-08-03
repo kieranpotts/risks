@@ -35,8 +35,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 - The PR MUST no longer be a draft (`isDraft: false`).
 
 - The header metadata (facilitator, workshop date, scope, frameworks, PR)

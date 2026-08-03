@@ -27,8 +27,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The pull request squash-merged into `main` with a `report: <description>`
 message, and its branch deleted. -->
 

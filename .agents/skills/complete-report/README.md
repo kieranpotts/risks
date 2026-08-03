@@ -6,6 +6,12 @@ Checks the workshop report and merges it into the `main` trunk.
 
 > Complete report
 
+> Land this report
+
+> Merge the report
+
+> The threat modeling workshop report is done.
+
 ## Recommended models
 
 A mid-tier model is sufficient for this skill. The merge is mechanical, but

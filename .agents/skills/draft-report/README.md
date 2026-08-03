@@ -10,6 +10,10 @@ template, and opens a pull request in a draft state.
 
 > Draft report
 
+> Draft a new report
+
+> Prepare a threat modeling workshop report
+
 > Threat model the payment flow.
 
 ## Recommended models

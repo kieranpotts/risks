@@ -37,8 +37,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- A `report/<slug>` branch, with a blank `risks/YYYY-MM-DD-<slug>/README.md`
 created from the template and its header filled in, a new row in
 `risks/INDEX.md`, committed to a pull request opened against `main` as a

@@ -9,6 +9,12 @@ due, or risks retired — without a workshop.
 
 > The MFA mitigation for TA1 is shipped.
 
+> Mark risk TA1 as mitigated
+
+> Review the register
+
+> Retire this risk
+
 ## Recommended models
 
 A mid-tier model is sufficient for this skill. Editing the rows is mechanical,

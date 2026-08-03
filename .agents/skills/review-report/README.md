@@ -9,7 +9,13 @@ Run from a `report/*` branch:
 
 > Review report
 
+> Review this report
+
 > This report is ready for review.
+
+> Take the report out of draft
+
+> Mark the report ready for review
 
 Or specify the target PR:
 
