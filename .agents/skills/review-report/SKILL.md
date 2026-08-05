@@ -6,10 +6,8 @@ description: >-
   user says something like "review this report", "this report is ready for
   review", "take the report out of draft", "mark the report ready for
   review", or "review report".
+compatibility: requires Read, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_BASIC
 ---
 
 # Review report

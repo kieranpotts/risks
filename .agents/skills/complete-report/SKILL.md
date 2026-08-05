@@ -6,10 +6,8 @@ description: >-
   "merge the report", or "the threat modeling workshop report is done". Do not
   use this skill to update the risk register without also landing a new
   workshop report.
+compatibility: requires Read, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Complete report

@@ -5,10 +5,8 @@ description: >-
   Use this skill when the user says something like "update the register",
   "mark risk TA1 as mitigated", "the MFA mitigation shipped",
   "review the register", or "retire this risk".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Update register
