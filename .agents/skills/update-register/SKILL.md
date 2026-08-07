@@ -1,64 +1,74 @@
 ---
 name: update-register
 description: >-
-  Update the living risk register without conducting a threat modeling workshop.
-  Use this skill when the user says something like "update the register",
-  "mark risk TA1 as mitigated", "the MFA mitigation shipped",
-  "review the register", or "retire this risk".
-compatibility: requires Read, Edit, Bash (git/gh)
+  Update the living risk register without conducting a threat modeling
+  workshop. Use this skill when the user says something like "update the
+  register", "mark risk TA1 as mitigated", "the MFA mitigation shipped",
+  "review the register", or "retire this risk". Do not use this skill to
+  identify new threats, which needs a workshop and its own report.
+compatibility: >-
+  requires Read, Edit, Bash (git, gh)
 license: CC0-1.0
 ---
 
 # Update register
 
-Use this skill to keep the living
-[`risks/REGISTER.md`](../../../risks/REGISTER.md) current between sessions —
-updating a tracked risk's status in place as it evolves. Unlike a session
-report, the register is living documentation: it MUST reflect the current
-state of the system's security posture at all times.
-
-Use it when:
-
-- A mitigation has shipped (or progressed), so a risk's status, severity, or
-  residual risk changes.
-- A scheduled review is due — refresh the `Reviewed` date and re-confirm the
-  ratings.
-- A risk no longer applies (designed out, component removed, fully
-  mitigated) — retire it.
-- A finding from an [audit](https://github.com/kieranpotts/audits) is worth
-  tracking over time — promote it into a new register row.
-
-Do NOT use this skill to run a new threat modeling session — use
-[draft report](../draft-report/SKILL.md). Do NOT edit any merged
-session report; those are immutable.
+Keep the living risk register at
+[`risks/REGISTER.md`](../../../risks/REGISTER.md) current between workshops, by
+updating a tracked risk's status in place. Unlike a workshop report, which is a
+frozen point-in-time snapshot, the register MUST reflect the true state of the
+system's security posture at all times.
 
 ## Parameters
 
 Determine the following information from the surrounding context and
-environment, if possible.
+environment, if possible. If you're uncertain about the required parameters,
+prompt the user for clarification.
 
-- **Description of the change — REQUIRED.** Which risk changed, and how
-  (mitigation shipped, severity change, scheduled review, retirement, or an
-  audit finding to promote). Prompt the user if not provided.
+- **Description of the change — REQUIRED.** Which tracked risk changed, and
+  how. This is normally one of: a mitigation that has shipped or progressed; a
+  scheduled review falling due; a risk that no longer applies and should be
+  retired; or a finding from an external audit or review that is worth
+  tracking over time as a new row.
+
+- **Slug — OPTIONAL.** A short, hyphen-delimited name for the change, used for
+  the branch and derived from the description if the user does not give one,
+  eg. `mfa-rollout` or `q3-review`.
+
+- **Reality check — REQUIRED before merging.** Whether the change the update
+  describes is actually true yet, eg. whether the mitigation has really
+  reached production. Ask the user if this cannot be established from context.
 
 ## Success criteria
 
-<!-- A `register/<slug>` branch, with the affected rows of `risks/REGISTER.md`
-updated in place, committed to a pull request opened against `main`,
-merged once the change it reflects is real. -->
+- Branch `register/<slug>` MUST exist, cut from `main`.
 
-- Branch `register/<slug>` MUST exist, and only `risks/REGISTER.md` MUST be
+- [`risks/REGISTER.md`](../../../risks/REGISTER.md) MUST be the only file
   changed.
 
-- The affected rows MUST reflect the current, true status of each risk, with
-  an updated `Reviewed` date.
+- The affected rows MUST state the current, true status of each risk, and MUST
+  carry an updated `Reviewed` date.
+
+- Every register row that existed before the change MUST still be present. A
+  risk that no longer applies is moved to the "Retired risks" section rather
+  than deleted.
 
 - A pull request titled `register: <short lowercase description>` MUST be
-  open (or merged, once the change is real).
+  open, or merged where the change it reflects is already real.
+
+- Every merged workshop report MUST be untouched, along with
+  [`risks/INDEX.md`](../../../risks/INDEX.md).
 
 ## Instructions
 
-1.  Create the branch.
+1.  Establish what changed, and confirm it against the register.
+
+    Read [`risks/REGISTER.md`](../../../risks/REGISTER.md) and identify the
+    rows affected, by their reference numbers. If the change amounts to fresh
+    threat identification rather than status-tracking of a known risk, stop:
+    that needs a threat modeling workshop and a report of its own.
+
+2.  Create the branch.
 
     ```sh
     git checkout main
@@ -66,18 +76,18 @@ merged once the change it reflects is real. -->
     git checkout -b register/<slug>
     ```
 
-    Use a slug that names the change, eg. `register/mfa-rollout` or
-    `register/q3-review`.
+3.  Update the affected rows in place.
 
-2.  Update the affected rows in place.
+    Edit [`risks/REGISTER.md`](../../../risks/REGISTER.md) and nothing else.
+    Revise the mitigation, status, severity, residual risk, and `Reviewed`
+    date of each affected row, using the value vocabularies the register
+    documents for those fields.
 
-    Edit [`risks/REGISTER.md`](../../../risks/REGISTER.md) only. Update the
-    mitigation status, severity, residual risk, and `Reviewed` date of the
-    affected rows. To promote an audit finding, add a new row with a fresh
-    reference number. To retire a risk, move its row to the "Retired risks"
-    section with a closing note — never delete it.
+    To promote an external audit or review finding, add a new row with a fresh
+    reference number, prefixed by its source. To retire a risk, move its row
+    to the "Retired risks" section with a closing note.
 
-3.  Commit and open a pull request.
+4.  Commit and open a pull request.
 
     ```sh
     git add risks/REGISTER.md
@@ -86,35 +96,65 @@ merged once the change it reflects is real. -->
     gh pr create --title "register: <short lowercase description>" --fill
     ```
 
-4.  Merge when the change is real.
+    Open it ready for review, not as a draft: a register update is a small,
+    factual change, and there is no drafting stage to protect.
 
-    Merge only once the change the update reflects is actually true — eg.
-    once a mitigation has shipped to production — so the register never
-    overstates the system's security posture. Squash-merge with a
+5.  Merge only once the change the update describes is genuinely real — eg.
+    once the mitigation has actually shipped to production — so that the
+    register never overstates the security posture. Squash-merge with the
     `register: <description>` message and delete the branch.
+
+    ```sh
+    gh pr merge <number> --squash \
+      --subject "register: <short lowercase description>" --delete-branch
+    ```
+
+6.  Summarize what you did, naming the rows you changed and their new status.
 
 ## Rules
 
-- You MUST NOT edit a merged session report.
+- You MUST NOT edit a merged workshop report.
 
-  Session reports are immutable point-in-time snapshots. All ongoing status
-  lives in the register.
+  Reports are immutable point-in-time snapshots of what a workshop found. All
+  ongoing status lives in the register, which is the single source of truth
+  for where each risk stands right now.
 
-- You MUST update rows in place and MUST NOT delete a row.
+- You MUST update rows in place, and MUST NOT delete a row.
 
-  Reference numbers are stable. Retire a risk by moving it to the "Retired
-  risks" section with a reason, so the register keeps a full account of what
-  was ever tracked.
+  Reference numbers are stable and are cited from workshop reports. Retire a
+  risk by moving it to the "Retired risks" section with a reason, so the
+  register keeps a full account of everything it ever tracked.
 
-- You MUST NOT mark a risk mitigated, or lower its residual risk, until the
+- You MUST NOT mark a risk mitigated, or lower its residual risk, before the
   mitigation is genuinely in place.
 
   Merge the register change alongside — or after — the real-world change it
-  describes, so the register never overstates the posture.
+  describes.
 
-- A reassessment that finds a new threat MUST be drafted as a session,
-  not filed as an update.
+- A reassessment that identifies a new threat MUST be written up as a
+  workshop report, not filed as a register update.
 
-  If the change amounts to fresh threat identification rather than
-  status-tracking of a known risk, use
-  [draft report](../draft-report/SKILL.md) instead.
+  Register rows record threats that an assessment actually raised. Adding a
+  row for a threat nobody assessed puts an unfounded entry in the living
+  register.
+
+- You MUST NOT track the mitigation work itself here.
+
+  This repository is discovery and record-keeping only. Step-by-step
+  remediation belongs in the affected code repository's own issue tracker; the
+  register row links out to it.
+
+## Edge cases
+
+- The register row cites a mitigation issue in another repository, and its
+  state is unclear.
+
+  Do not guess. Report what the row claims, say that you could not confirm the
+  mitigation shipped, and leave the row's status unchanged until the user
+  confirms.
+
+- Several unrelated risks changed at once, eg. at a scheduled review.
+
+  A single `register/<slug>` branch MAY carry them, provided every row in it
+  is true at merge time. Split the change where one row's update depends on
+  work that has not yet shipped, so the rest is not held up.

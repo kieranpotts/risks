@@ -21,16 +21,20 @@ register and the lifecycle of threat modeling workshop reports via AI agents.
 - **[update-register](./update-register/):** \
   Updates the living risk register in place — mitigations shipped, reviews
   due, or risks retired — without a workshop.
+  This is the only skill here that operates on the register rather than on a
+  workshop report. A workshop seeds its register rows on the report's own
+  branch; once that report has landed in `main` it is frozen, and every
+  further change to those rows goes through this skill.
 
 ## Workflow
 
 ```mermaid
 flowchart LR
-  draft["🤖<br/><b>draft-report</b>"]:::agentic
-  workshop["🧑🤖<br/>run the workshop,<br/>write findings and<br/>register rows"]:::anthropic
-  review["🤖<br/><b>review-report</b>"]:::agentic
-  complete["🤖<br/><b>complete-report</b>"]:::agentic
-  update["🤖<br/><b>update-register</b>"]:::agentic
+  draft["🤖🧑<br/><b>draft-report</b>"]:::anthropic
+  workshop["🧑<br/>run the workshop,<br/>write findings and<br/>register rows"]:::anthropic
+  review["🤖🧑<br/><b>review-report</b>"]:::anthropic
+  complete["🤖🧑<br/><b>complete-report</b>"]:::anthropic
+  update["🤖🧑<br/><b>update-register</b>"]:::anthropic
 
   draft ==> workshop
   workshop ==> review
