@@ -49,7 +49,7 @@ is always Critical.
 | Medium | Track and mitigate opportunistically. |
 | Low | Accept, monitor, or fix if cheap. |
 
-Record the likelihood, impact, and resulting severity in both the session
+Record the likelihood, impact, and resulting severity in both the workshop
 report's threat assessment table and – for risks worth tracking – the
 [register](../risks/REGISTER.md).
 

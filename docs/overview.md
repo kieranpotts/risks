@@ -13,7 +13,7 @@ Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054).
 The repository holds two kinds of artifact, and the distinction between them is
 the organizing principle of the whole thing:
 
-- **Session reports are point-in-time and immutable.** A threat modeling session
+- **Workshop reports are point-in-time and immutable.** A threat modeling session
   happens on a date, against a defined scope, and its report is true as of that
   moment. Like an [audit](https://github.com/kieranpotts/audits), it is frozen
   once merged. To reassess a system, you hold a new session – you do not edit an

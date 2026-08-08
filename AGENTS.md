@@ -42,7 +42,7 @@ register current between workshops.
 ## Rules
 
 Agents MUST follow the rules in [CONTRIBUTING.md > Rules](./CONTRIBUTING.md#rules).
-Re-read the rules before writing a session report or updating the register,
+Re-read the rules before writing a workshop report or updating the register,
 rather than relying on your memory of a prior state of the rules.
 
 ## Skills

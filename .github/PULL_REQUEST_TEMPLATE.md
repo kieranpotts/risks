@@ -48,7 +48,7 @@ After merging, complete these tasks:
 - Delete the `report/*` branch.
 
 > [!IMPORTANT]
-> Session reports on `main` are immutable. Do NOT edit a merged report — hold a
+> Workshop reports on `main` are immutable. Do NOT edit a merged report — hold a
 > new workshop instead.
 
 ### An update to the risk register
@@ -59,7 +59,7 @@ After merging, complete these tasks:
 - [ ] Each affected row records a mitigation strategy (or an explicit, reasoned
       decision to accept the risk) and its residual risk.
 - [ ] Status is recorded only in the register. It is not scattered across
-      session reports.
+      workshop reports.
 - [ ] Mitigation work itself is tracked in the relevant code repository's issue
       tracker, and the register links out to it.
 - [ ] The PR title follows `register: <description>`.

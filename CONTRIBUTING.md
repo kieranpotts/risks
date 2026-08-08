@@ -77,7 +77,7 @@ newly-implemented mitigation strategies.
 
 - All artifacts MUST be written in American English.
 
-- Every session report MUST be dated, scoped, and cite the exact system context
+- Every workshop report MUST be dated, scoped, and cite the exact system context
   assessed.
 
 - Every identified threat MUST be classified using a named framework and rated
@@ -85,12 +85,12 @@ newly-implemented mitigation strategies.
 
 - The register MUST be treated as the single source of truth for current risk
   status. Each tracked risk lives in exactly one register row, updated in
-  place. Status MUST NOT be scattered across session reports.
+  place. Status MUST NOT be scattered across workshop reports.
 
 - Every register row MUST record a mitigation strategy (or an explicit, reasoned
   decision to accept the risk) and its residual risk.
 
-- Session reports MUST be treated as immutable once merged. To reassess the
+- Workshop reports MUST be treated as immutable once merged. To reassess the
   system, hold a new session – a merged report MUST NOT be edited.
 
 - This repository is discovery and record-keeping only. It MUST NOT change any

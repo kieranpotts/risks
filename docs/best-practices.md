@@ -49,7 +49,7 @@ being honest about trade-offs.
 ## The register is the single source of truth
 
 A risk's current status lives in exactly one place: its register row. Do not
-scatter status across session reports – those are frozen. When a mitigation
+scatter status across workshop reports – those are frozen. When a mitigation
 ships or a review happens, update the row in place with
 [`/update-register`](../.agents/skills/update-register/).
 
@@ -65,9 +65,9 @@ When a risk no longer applies, move it to the register's "Retired risks" section
 with a closing note. Reference numbers are stable and rows are never deleted, so
 the register keeps a full account of everything that was ever tracked.
 
-## Keep session reports immutable
+## Keep workshop reports immutable
 
-Do not edit a merged session report as the system changes underneath it. To
+Do not edit a merged workshop report as the system changes underneath it. To
 reassess, hold a new session. The [`INDEX`](../risks/INDEX.md) is a trail of when
 the system was examined and what was found each time, not a single living
 verdict – that is the register's job.
