@@ -58,7 +58,7 @@ prompt the user for clarification.
     to mark ready:
 
     ```sh
-    gh pr list --draft --search "report:" --json number,title,headRefName
+    gh pr list --draft --search "create:" --json number,title,headRefName
     ```
 
 2.  Read `risks/YYYY-MM-DD-<slug>/README.md` in full, then check it for

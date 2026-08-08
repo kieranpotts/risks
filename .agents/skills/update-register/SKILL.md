@@ -53,7 +53,7 @@ prompt the user for clarification.
   risk that no longer applies is moved to the "Retired risks" section rather
   than deleted.
 
-- A pull request titled `register: <short lowercase description>` MUST be
+- A pull request titled `update: <short lowercase description>` MUST be
   open, or merged where the change it reflects is already real.
 
 - Every merged workshop report MUST be untouched, along with
@@ -91,9 +91,9 @@ prompt the user for clarification.
 
     ```sh
     git add risks/REGISTER.md
-    git commit -m "register: <short lowercase description>"
+    git commit -m "update: <short lowercase description>"
     git push -u origin register/<slug>
-    gh pr create --title "register: <short lowercase description>" --fill
+    gh pr create --title "update: <short lowercase description>" --fill
     ```
 
     Open it ready for review, not as a draft: a register update is a small,
@@ -102,11 +102,11 @@ prompt the user for clarification.
 5.  Merge only once the change the update describes is genuinely real — eg.
     once the mitigation has actually shipped to production — so that the
     register never overstates the security posture. Squash-merge with the
-    `register: <description>` message and delete the branch.
+    `update: <description>` message and delete the branch.
 
     ```sh
     gh pr merge <number> --squash \
-      --subject "register: <short lowercase description>" --delete-branch
+      --subject "update: <short lowercase description>" --delete-branch
     ```
 
 6.  Summarize what you did, naming the rows you changed and their new status.

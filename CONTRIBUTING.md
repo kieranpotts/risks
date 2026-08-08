@@ -48,9 +48,9 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 5.  Update the [risk register](./risks/REGISTER.md). Promote each threat worth
     tracking into a new row of the register, with a fresh reference number.
 
-6.  Commit your changes with the message `report: <description>`, where
+6.  Commit your changes with the message `create: <description>`, where
     `<description>` is a short prose title, written full lowercase, eg.
-    `report: payment flow threat model`. Open a pull request as a draft, with
+    `create: payment flow threat model`. Open a pull request as a draft, with
     the same title as the commit message.
 
 7.  When the report is ready for review, transition the pull request out of
@@ -68,7 +68,7 @@ newly-implemented mitigation strategies.
 2.  Update the affected rows of the [risk register](./risks/REGISTER.md) in
     place – mitigation status, severity, residual risk, and the review date.
 
-3.  Commit with a `register: <description>` message and open a pull request.
+3.  Commit with an `update: <description>` message and open a pull request.
 
 4.  Merge it once the change it reflects is real – eg. once the mitigation has
     actually shipped to production.

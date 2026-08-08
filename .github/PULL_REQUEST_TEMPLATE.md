@@ -35,8 +35,8 @@ On opening this PR (open it as a draft):
 Mark this PR ready for review when:
 
 - [ ] No generic template text or unfilled placeholders remain.
-- [ ] The PR title follows `report: <description>` — a short prose title,
-      written full lowercase, eg. `report: payment flow threat model`.
+- [ ] The PR title follows `create: <description>` — a short prose title,
+      written full lowercase, eg. `create: payment flow threat model`.
 
 Merge this PR when:
 
@@ -62,7 +62,7 @@ After merging, complete these tasks:
       workshop reports.
 - [ ] Mitigation work itself is tracked in the relevant code repository's issue
       tracker, and the register links out to it.
-- [ ] The PR title follows `register: <description>`.
+- [ ] The PR title follows `update: <description>`.
 
 Merge this PR when:
 

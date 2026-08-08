@@ -58,7 +58,7 @@ prompt the user for clarification.
 - [`risks/INDEX.md`](../../../risks/INDEX.md) MUST carry a new row for this
   workshop, at the top of the table.
 
-- A pull request titled `report: <short lowercase description>` MUST be open
+- A pull request titled `create: <short lowercase description>` MUST be open
   against `main` in its draft state, and the report's `PR` header field MUST
   name it.
 
@@ -102,14 +102,14 @@ prompt the user for clarification.
 
     ```sh
     git add risks/
-    git commit -m "report: <short lowercase description>"
+    git commit -m "create: <short lowercase description>"
     git push -u origin report/<slug>
     ```
 
 8.  Open a draft pull request.
 
     ```sh
-    gh pr create --draft --title "report: <short lowercase description>" --fill
+    gh pr create --draft --title "create: <short lowercase description>" --fill
     ```
 
     If the `gh` client is unavailable or unauthenticated, fail with an error.

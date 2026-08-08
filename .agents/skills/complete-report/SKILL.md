@@ -36,7 +36,7 @@ prompt the user for clarification.
 ## Success criteria
 
 - The pull request MUST be squash-merged into `main` with a
-  `report: <short lowercase description>` message.
+  `create: <short lowercase description>` message.
 
 - The `report/<slug>` branch MUST be deleted from the upstream repository.
 
@@ -59,7 +59,7 @@ prompt the user for clarification.
     requests and ask the user to choose:
 
     ```sh
-    gh pr list --search "report:" --json number,title,headRefName
+    gh pr list --search "create:" --json number,title,headRefName
     ```
 
 2.  Confirm the pull request is not still a draft.
@@ -79,12 +79,12 @@ prompt the user for clarification.
 
 4.  Merge the pull request.
 
-    Squash-merge with a `report: <description>` message, and delete the source
+    Squash-merge with a `create: <description>` message, and delete the source
     branch on the upstream repository:
 
     ```sh
     gh pr merge <number> --squash \
-      --subject "report: <short lowercase description>" --delete-branch
+      --subject "create: <short lowercase description>" --delete-branch
     ```
 
     The report, its index row, and the register rows the assessment raised all
@@ -116,7 +116,7 @@ prompt the user for clarification.
 - You MUST NOT merge over unresolved review comments unless the user tells you
   to.
 
-- You MUST squash-merge, with a `report: <short lowercase description>`
+- You MUST squash-merge, with a `create: <short lowercase description>`
   subject.
 
   A workshop lands as exactly one commit on `main`, matching the message the
