@@ -14,21 +14,21 @@ or run.
 
 ## Project structure
 
-- **`risks/`:** The risk register and workshop reports.
+- `risks/`. The risk register and workshop reports.
 
-  - **`risks/REGISTER.md`** is the living register of tracked risks – the single
-    source of truth for where each identified risk stands right now.
+  - `risks/REGISTER.md` is the living register of tracked risks. It is the
+    single source of truth for where each identified risk stands right now.
 
-  - **`risks/INDEX.md`** is the append-only catalog of every threat modeling
+  - `risks/INDEX.md` is the append-only catalog of every threat modeling
     workshop held, and its report merged into `main`, newest first.
 
-  - **`risks/TEMPLATE.md`** is the starting point for a new workshop report.
+  - `risks/TEMPLATE.md` is the starting point for a new workshop report.
 
-  - **`risks/YYYY-MM-DD-<slug>/`** is one workshop report, dated by when the
+  - `risks/YYYY-MM-DD-<slug>/` is one workshop report, dated by when the
     workshop was held.
 
-- **`docs/`:** General guidance for humans on threat modeling, risk rating,
-  and maintaining the register.
+- `docs/`. General guidance for humans on threat modeling, risk rating, and
+  maintaining the register.
 
 ## Workflow
 
@@ -47,7 +47,7 @@ rather than relying on your memory of a prior state of the rules.
 
 ## Skills
 
-The **`.agents/skills/`** directory provides on-demand skills for running
+The `.agents/skills/` directory provides on-demand skills for running
 workshops and maintaining the register. See the [README](./.agents/skills/README.md)
 for descriptions of the available skills and their triggers.
 
