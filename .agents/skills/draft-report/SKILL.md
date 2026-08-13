@@ -165,6 +165,6 @@ prompt the user for clarification.
 
 ## References
 
-- [TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054) \
+- [TS-54: Threat Modeling](https://kieranpotts.com/standards/054) \
   Read when the report template's structure or the rating scheme is unclear.
   This is the standard the template follows.

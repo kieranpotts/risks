@@ -10,7 +10,7 @@ The focus here is on the mechanics and guardrails of the process. See the
 [documentation](./docs/) for more general guidance on threat modeling and
 risk rating.
 
-See also [TS-54](https://github.com/kieranpotts/standards/tree/latest/dev/src/054)
+See also [TS-54](https://kieranpotts.com/standards/054)
 for the technical standard that underpins this process.
 
 ****

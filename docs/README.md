@@ -18,4 +18,4 @@ the risk register.
   The mechanics of the session and register workflows.
 
 See also
-[TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054).
+[TS-54: Threat Modeling](https://kieranpotts.com/standards/054).

@@ -6,7 +6,7 @@ threat modeling sessions – structured workshops that analyze the system's desi
 to identify threats before they become incidents.
 
 This repository implements [TS-54: Threat
-Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054).
+Modeling](https://kieranpotts.com/standards/054).
 
 ## Two artifacts, two natures
 

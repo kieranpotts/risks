@@ -8,7 +8,7 @@ first.
 You may design your own scoring scheme. The important thing is to apply it
 _consistently_ – the goal is to rank risks against each other, not to achieve
 false precision on any one. The scheme below is a common default, aligned with
-[TS-54 §6](https://github.com/kieranpotts/standards/tree/latest/dev/src/054) and the
+[TS-54 §6](https://kieranpotts.com/standards/054) and the
 register's fields.
 
 ## Likelihood (probability)

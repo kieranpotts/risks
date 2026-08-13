@@ -48,5 +48,5 @@ pull request; the judgment-heavy work of the workshop itself comes later.
 
 ## References
 
-- [TS-54: Threat Modeling](https://github.com/kieranpotts/standards/tree/latest/dev/src/054)
+- [TS-54: Threat Modeling](https://kieranpotts.com/standards/054)
   — the standard the report template follows.

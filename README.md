@@ -38,7 +38,7 @@ suitable mitigation strategies are in place.
 
 > [!NOTE]
 > This is a reference implementation of
-> [TS-54](https://github.com/kieranpotts/standards/tree/latest/dev/src/054),
+> [TS-54](https://kieranpotts.com/standards/054),
 > a technical standard for running threat modeling workshops and maintaining
 > a risk register.
 
