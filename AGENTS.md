@@ -52,3 +52,24 @@ workshops and maintaining the register. See the [README](./.agents/skills/README
 for descriptions of the available skills and their triggers.
 
 It is RECOMMENDED to use these skills to drive the workflow.
+
+## References
+
+The following technical standards (TS) govern this project. Fetch and ingest
+the relevant standards as-and-when required for the task at hand.
+
+- [**TS-54: Threat Modeling**](https://kieranpotts.com/standards/054) \
+  Use when designing, reviewing, or iterating on a system's security posture.
+  Covers threat modeling workshops and maintenance of a project's risk register.
+
+- [**TS-25: Technical Documentation**](https://kieranpotts.com/standards/025) \
+  Use when deciding what documentation a project needs, where it should live,
+  who it's for, or whether it's still trustworthy.
+
+- [**TS-26: Technical Writing Style Guide**](https://kieranpotts.com/standards/026) \
+  Use when writing or editing the prose of a technical document. Covers
+  tone-of-voice, headings, terminology, lists, and citations.
+
+- [**TS-9: Version Control**](https://kieranpotts.com/standards/009) \
+  Use when working with Git. Covers commits, branching, merging, integration
+  strategies, cutting releases, and configuring Git/PR/CI tooling.
