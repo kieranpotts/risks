@@ -1,9 +1,9 @@
 # Complete report
 
-Lands a reviewed threat modeling workshop report in the `main` trunk.
+Lands a reviewed threat modeling workshop report in the `latest/main` trunk.
 
 Confirms the pull request is out of draft and its review is settled, then
-squash-merges it and deletes the `report/<slug>` branch. The report, its row in
+squash-merges it and deletes the `latest/report/<slug>` branch. The report, its row in
 the [workshop index](../../../risks/INDEX.md), and the rows the assessment
 raised in the [risk register](../../../risks/REGISTER.md) all land together in
 one commit. Once merged, the report is immutable.
@@ -17,7 +17,7 @@ away-from-keyboard use.
 
 ## How to invoke
 
-Run from a `report/*` branch:
+Run from a `latest/report/*` branch:
 
 > Complete report
 

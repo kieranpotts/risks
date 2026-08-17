@@ -22,7 +22,7 @@ risks/
 
 ## Workflow
 
-1.  Create a `report/<slug>` branch.
+1.  Create a `latest/report/<slug>` branch.
 
 2.  Copy the [template](./TEMPLATE.md) to `YYYY-MM-DD-<slug>/README.md`,
     where `YYYY-MM-DD` is the date of the threat modeling workshop, and `<slug>`
@@ -43,4 +43,4 @@ risks/
 
 8.  Open the PR for comments.
 
-9.  Resolve comments and merge into `main`.
+9.  Resolve comments and merge into `latest/main`.

@@ -8,8 +8,8 @@ than on a workshop report. The two artifacts have opposite lifecycles: a
 workshop report is drafted, reviewed, merged, and then frozen, while the
 register is living documentation whose rows are revised in place forever
 afterwards. A workshop seeds its register rows on the report's own branch; from
-the moment that report lands in `main`, every further change to those rows goes
-through this skill instead, on a `register/<slug>` branch of its own.
+the moment that report lands in `latest/main`, every further change to those
+rows goes through this skill instead, on a `register/<slug>` branch of its own.
 
 ## Interactivity
 
@@ -47,5 +47,5 @@ status-tracking rather than a new threat, needs a little more.
   before the report goes out for review.
 
 - [**complete-report**](../complete-report/) \
-  Lands a workshop's initial register rows in `main`. Every later revision of
-  those rows belongs to this skill.
+  Lands a workshop's initial register rows in `latest/main`. Every later
+  revision of those rows belongs to this skill.

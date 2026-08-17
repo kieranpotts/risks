@@ -38,7 +38,7 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 3.  Hold a threat modeling workshop to review the current risks in the target
     system or subsystem.
 
-4.  Write up the findings from the workshop. Branch off `main` using the
+4.  Write up the findings from the workshop. Branch off `latest/main` using the
     convention `report/<slug>`, where `<slug>` is a short, hyphen-delimited
     description of the workshop's scope, eg. `report/payment-flow`. Write up the
     report based on the [template](./risks/TEMPLATE.md). Save the report at
@@ -62,7 +62,7 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 Between workshops, keep the risk register up-to-date, for example to reflect
 newly-implemented mitigation strategies.
 
-1.  Branch off `main` using the convention `register/<slug>`, eg.
+1.  Branch off `latest/main` using the convention `register/<slug>`, eg.
     `register/mfa-rollout` or `register/q3-review`.
 
 2.  Update the affected rows of the [risk register](./risks/REGISTER.md) in

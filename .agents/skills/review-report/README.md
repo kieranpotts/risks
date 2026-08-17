@@ -12,13 +12,13 @@ follow-ups are left for reviewers to comment on.
 ## Interactivity
 
 Interactive. Where the target cannot be inferred from the checked-out
-`report/<slug>` branch, the agent lists the open draft pull requests and asks
-which to mark ready. It also stops and reports back, rather than proceeding,
+`latest/report/<slug>` branch, the agent lists the open draft pull requests and
+asks which to mark ready. It also stops and reports back, rather than proceeding,
 when the report is missing substance.
 
 ## How to invoke
 
-Run from a `report/*` branch:
+Run from a `latest/report/*` branch:
 
 > Review report
 
@@ -46,7 +46,7 @@ mechanical, and the report itself is left untouched.
   this skill later marks ready.
 
 - [**complete-report**](../complete-report/) \
-  Runs next, once review has settled, squash-merging the report into `main`.
+  Runs next, once review has settled, squash-merging the report into `latest/main`.
 
 - [**update-register**](../update-register/) \
   Maintains the risk register between workshops. This skill checks the

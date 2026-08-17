@@ -20,7 +20,7 @@ or run.
     single source of truth for where each identified risk stands right now.
 
   - `risks/INDEX.md` is the append-only catalog of every threat modeling
-    workshop held, and its report merged into `main`, newest first.
+    workshop held, and its report merged into `latest/main`, newest first.
 
   - `risks/TEMPLATE.md` is the starting point for a new workshop report.
 

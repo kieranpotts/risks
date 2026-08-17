@@ -41,7 +41,7 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- Branch `register/<slug>` MUST exist, cut from `main`.
+- Branch `latest/register/<slug>` MUST exist, cut from `latest/main`.
 
 - [`risks/REGISTER.md`](../../../risks/REGISTER.md) MUST be the only file
   changed.
@@ -71,9 +71,9 @@ prompt the user for clarification.
 2.  Create the branch.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
-    git checkout -b register/<slug>
+    git checkout -b latest/register/<slug>
     ```
 
 3.  Update the affected rows in place.
@@ -92,7 +92,7 @@ prompt the user for clarification.
     ```sh
     git add risks/REGISTER.md
     git commit -m "update: <short lowercase description>"
-    git push -u origin register/<slug>
+    git push -u origin latest/register/<slug>
     gh pr create --title "update: <short lowercase description>" --fill
     ```
 
@@ -155,6 +155,6 @@ prompt the user for clarification.
 
 - Several unrelated risks changed at once, eg. at a scheduled review.
 
-  A single `register/<slug>` branch MAY carry them, provided every row in it
-  is true at merge time. Split the change where one row's update depends on
+  A single `latest/register/<slug>` branch MAY carry them, provided every row in
+  it is true at merge time. Split the change where one row's update depends on
   work that has not yet shipped, so the rest is not held up.

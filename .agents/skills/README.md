@@ -6,8 +6,8 @@ register and the lifecycle of threat modeling workshop reports via AI agents.
 - **[draft-report](./draft-report/):** \
   Scaffolds a blank report to capture the findings from a new threat
   modeling workshop.
-  Cuts a `report/<slug>` branch from `main`, prepares a fresh report from the
-  template, and opens a pull request in a draft state.
+  Cuts a `latest/report/<slug>` branch from `latest/main`, prepares a fresh
+  report from the template, and opens a pull request in a draft state.
   It does not run the assessment — the workshop is authored into the report
   this skill creates.
 
@@ -16,14 +16,14 @@ register and the lifecycle of threat modeling workshop reports via AI agents.
   request out of draft.
 
 - **[complete-report](./complete-report/):** \
-  Checks the workshop report and merges it into the `main` trunk.
+  Checks the workshop report and merges it into the `latest/main` trunk.
 
 - **[update-register](./update-register/):** \
   Updates the living risk register in place — mitigations shipped, reviews
   due, or risks retired — without a workshop.
   This is the only skill here that operates on the register rather than on a
   workshop report. A workshop seeds its register rows on the report's own
-  branch; once that report has landed in `main` it is frozen, and every
+  branch; once that report has landed in `latest/main` it is frozen, and every
   further change to those rows goes through this skill.
 
 ## Workflow

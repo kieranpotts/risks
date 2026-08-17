@@ -27,8 +27,9 @@ prompt the user for clarification.
 
 - **Target — REQUIRED.** The workshop whose pull request is to be marked
   ready. Infer it from the checked-out branch, which is named
-  `report/<slug>`. If `main` is checked out, or the user names a pull request
-  number instead, resolve the target from the open draft pull requests.
+  `latest/report/<slug>`. If `latest/main` is checked out, or the user names a
+  pull request number instead, resolve the target from the open draft pull
+  requests.
 
 ## Success criteria
 
@@ -53,9 +54,9 @@ prompt the user for clarification.
 
 1.  Identify the workshop and its pull request.
 
-    Infer the target from the checked-out `report/<slug>` branch. If `main` is
-    checked out, list the open draft pull requests and ask the user which one
-    to mark ready:
+    Infer the target from the checked-out `latest/report/<slug>` branch. If
+    `latest/main` is checked out, list the open draft pull requests and ask the
+    user which one to mark ready:
 
     ```sh
     gh pr list --draft --search "create:" --json number,title,headRefName
@@ -104,8 +105,8 @@ prompt the user for clarification.
 
 - You MUST NOT merge the pull request.
 
-  Landing the report in `main` is a separate, later stage of the workflow, and
-  it happens only once review has settled.
+  Landing the report in `latest/main` is a separate, later stage of the workflow,
+  and it happens only once review has settled.
 
 ## Edge cases
 

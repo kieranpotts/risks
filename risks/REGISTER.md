@@ -6,7 +6,7 @@ each risk stands right now.
 
 The register is living documentation. Rows are updated in place as mitigations
 are applied, risks are reassessed, and scheduled reviews are performed. A row
-is merged (or updated) to `main` alongside the change it describes, so the
+is merged (or updated) to `latest/main` alongside the change it describes, so the
 register never overstates or understates the system's actual security posture.
 
 Each row is sourced from a threat modeling session — see the [index](./INDEX.md).

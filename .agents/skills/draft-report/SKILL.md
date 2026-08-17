@@ -46,7 +46,7 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- Branch `report/<slug>` MUST exist and be checked out.
+- Branch `latest/report/<slug>` MUST exist and be checked out.
 
 - `risks/YYYY-MM-DD-<slug>/README.md` MUST exist, MUST follow the structure of
   [`risks/TEMPLATE.md`](../../../risks/TEMPLATE.md), and its metadata header
@@ -59,8 +59,8 @@ prompt the user for clarification.
   workshop, at the top of the table.
 
 - A pull request titled `create: <short lowercase description>` MUST be open
-  against `main` in its draft state, and the report's `PR` header field MUST
-  name it.
+  against `latest/main` in its draft state, and the report's `PR` header field
+  MUST name it.
 
 - [`risks/REGISTER.md`](../../../risks/REGISTER.md) MUST be unchanged.
 
@@ -77,9 +77,9 @@ prompt the user for clarification.
 3.  Create the branch.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
-    git checkout -b report/<slug>
+    git checkout -b latest/report/<slug>
     ```
 
 4.  Copy [`risks/TEMPLATE.md`](../../../risks/TEMPLATE.md) to
@@ -103,7 +103,7 @@ prompt the user for clarification.
     ```sh
     git add risks/
     git commit -m "create: <short lowercase description>"
-    git push -u origin report/<slug>
+    git push -u origin latest/report/<slug>
     ```
 
 8.  Open a draft pull request.
@@ -139,17 +139,17 @@ prompt the user for clarification.
   Do not bundle several scopes into one pull request. Each workshop is
   indexed, reviewed, and merged on its own.
 
-- You MUST branch from `main`, not from any other branch.
+- You MUST branch from `latest/main`, not from any other branch.
 
-  Workshops are always cut from `main`. If local `main` is behind the remote,
-  pull first, using the rebase strategy to keep history linear.
+  Workshops are always cut from `latest/main`. If local `latest/main` is behind
+  the remote, pull first, using the rebase strategy to keep history linear.
 
 - You MUST stage every file you changed, including
   [`risks/INDEX.md`](../../../risks/INDEX.md).
 
   The index row lives in a different file from the report, so staging only the
   report directory would leave the row uncommitted and it would never reach
-  `main`.
+  `latest/main`.
 
 - You MUST NOT run the assessment or write findings.
 

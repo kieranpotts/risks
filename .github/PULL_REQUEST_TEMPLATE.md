@@ -16,7 +16,7 @@ Use whichever section applies. Delete the other.
 
 On opening this PR (open it as a draft):
 
-- [ ] The branch is named `report/<slug>`.
+- [ ] The branch is named `latest/report/<slug>`.
 - [ ] The report is saved at `risks/YYYY-MM-DD-<slug>/README.md`, with the
       metadata header filled in.
 - [ ] Supporting artifacts live under `risks/YYYY-MM-DD-<slug>/` and are
@@ -45,15 +45,15 @@ Merge this PR when:
 
 After merging, complete these tasks:
 
-- Delete the `report/*` branch.
+- Delete the `latest/report/*` branch.
 
 > [!IMPORTANT]
-> Workshop reports on `main` are immutable. Do NOT edit a merged report — hold a
-> new workshop instead.
+> Workshop reports on `latest/main` are immutable. Do NOT edit a merged report
+> — hold a new workshop instead.
 
 ### An update to the risk register
 
-- [ ] The branch is named `register/<slug>`, eg. `register/mfa-rollout`.
+- [ ] The branch is named `latest/register/<slug>`, eg. `latest/register/mfa-rollout`.
 - [ ] The affected rows of `risks/REGISTER.md` are updated in place —
       mitigation status, severity, residual risk, and review date.
 - [ ] Each affected row records a mitigation strategy (or an explicit, reasoned

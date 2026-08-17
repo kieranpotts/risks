@@ -94,7 +94,7 @@ better to fold all documentation into the same repository.
   The permanent archive of reports from threat modeling workshops, one directory
   per workshop.
 
-  - The [`INDEX`](./risks/INDEX.md) lists every report merged into `main`,
+  - The [`INDEX`](./risks/INDEX.md) lists every report merged into `latest/main`,
     newest first.
 
   - The [`TEMPLATE`](./risks/TEMPLATE.md) is the starting point for a new

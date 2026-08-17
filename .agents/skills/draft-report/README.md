@@ -3,8 +3,8 @@
 Scaffolds a blank report to capture the findings from a new threat modeling
 workshop.
 
-Cuts a `report/<slug>` branch from `main`, prepares a fresh report from
-[the template](../../../risks/TEMPLATE.md), prepends a row to the
+Cuts a `latest/report/<slug>` branch from `latest/main`, prepares a fresh report
+from [the template](../../../risks/TEMPLATE.md), prepends a row to the
 [workshop index](../../../risks/INDEX.md), and opens a pull request in a draft
 state. It does not run the workshop: the assessment and the risk register rows
 it raises are authored afterwards, onto the same branch.
@@ -39,7 +39,7 @@ pull request; the judgment-heavy work of the workshop itself comes later.
   report, taking its pull request out of draft.
 
 - [**complete-report**](../complete-report/) \
-  Runs last, squash-merging the reviewed report into `main`.
+  Runs last, squash-merging the reviewed report into `latest/main`.
 
 - [**update-register**](../update-register/) \
   Maintains the risk register between workshops. The register rows a workshop

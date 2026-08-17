@@ -1,7 +1,7 @@
 ---
 name: complete-report
 description: >-
-  Land in `main` the report from a threat modeling workshop. Use this skill
+  Land in `latest/main` the report from a threat modeling workshop. Use this skill
   when the user says something like "complete report", "land this report",
   "merge the report", or "the threat modeling workshop report is done". Do not
   use this skill to update the risk register without also landing a new
@@ -13,10 +13,10 @@ license: CC0-1.0
 
 # Complete report
 
-Land a threat modeling workshop report in the `main` trunk, by squash-merging
-its pull request and deleting its branch. Do not edit the report, the workshop
-index, or the risk register: everything that lands was written earlier, on
-this same branch.
+Land a threat modeling workshop report in the `latest/main` trunk, by
+squash-merging its pull request and deleting its branch. Do not edit the report,
+the workshop index, or the risk register: everything that lands was written
+earlier, on this same branch.
 
 ## Parameters
 
@@ -25,9 +25,9 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target — REQUIRED.** The workshop whose pull request is to be merged.
-  Infer it from the checked-out branch, which is named `report/<slug>`. If
-  `main` is checked out, resolve the target from the user's description or
-  from the open report pull requests.
+  Infer it from the checked-out branch, which is named `latest/report/<slug>`.
+  If `latest/main` is checked out, resolve the target from the user's
+  description or from the open report pull requests.
 
 - **Merge approval — REQUIRED.** The user's explicit instruction to merge.
   Merging is irreversible in practice — the branch is deleted and the workshop
@@ -35,12 +35,13 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- The pull request MUST be squash-merged into `main` with a
+- The pull request MUST be squash-merged into `latest/main` with a
   `create: <short lowercase description>` message.
 
-- The `report/<slug>` branch MUST be deleted from the upstream repository.
+- The `latest/report/<slug>` branch MUST be deleted from the upstream
+  repository.
 
-- `main` MUST now carry the workshop report, its row in
+- `latest/main` MUST now carry the workshop report, its row in
   [`risks/INDEX.md`](../../../risks/INDEX.md), and the rows the assessment
   raised in [`risks/REGISTER.md`](../../../risks/REGISTER.md).
 
@@ -54,9 +55,9 @@ prompt the user for clarification.
 
 1.  Identify the workshop and its pull request.
 
-    Infer the target from the checked-out `report/<slug>` branch. If `main` is
-    checked out, use the user's description, or list the open report pull
-    requests and ask the user to choose:
+    Infer the target from the checked-out `latest/report/<slug>` branch. If
+    `latest/main` is checked out, use the user's description, or list the open
+    report pull requests and ask the user to choose:
 
     ```sh
     gh pr list --search "create:" --json number,title,headRefName
@@ -94,7 +95,7 @@ prompt the user for clarification.
     delete it automatically, delete it directly:
 
     ```sh
-    git push origin --delete report/<slug>
+    git push origin --delete latest/report/<slug>
     ```
 
 6.  Summarize what you did, naming the merge commit and the register rows that
@@ -119,8 +120,8 @@ prompt the user for clarification.
 - You MUST squash-merge, with a `create: <short lowercase description>`
   subject.
 
-  A workshop lands as exactly one commit on `main`, matching the message the
-  report was drafted under.
+  A workshop lands as exactly one commit on `latest/main`, matching the message
+  the report was drafted under.
 
 - You MUST NOT edit the report, the workshop index, or the risk register at
   merge time.
@@ -131,7 +132,7 @@ prompt the user for clarification.
 
 ## Edge cases
 
-- The pull request has merge conflicts against `main`.
+- The pull request has merge conflicts against `latest/main`.
 
   Stop and report them. Conflicts usually mean another workshop landed a
   register row or index row in the meantime, and resolving them is an edit to
