@@ -17,5 +17,8 @@ the risk register.
 - [**Contributing**](../CONTRIBUTING.md) \
   The mechanics of the session and register workflows.
 
+- [**🛠️ Development tools and methods**](./development/) \
+  Maintaining this repository itself, including its GitHub configuration.
+
 See also
 [TS-54: Threat Modeling](https://kieranpotts.com/standards/054).
