@@ -5,8 +5,7 @@ carries, and how they are being mitigated over time. It is fed primarily by
 threat modeling sessions – structured workshops that analyze the system's design
 to identify threats before they become incidents.
 
-This repository implements [TS-54: Threat
-Modeling](https://kieranpotts.com/standards/054).
+This repository implements [TS-54: Threat Modeling](https://kieranpotts.com/standards/054).
 
 ## Two artifacts, two natures
 
